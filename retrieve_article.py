@@ -13,17 +13,17 @@ from langdetect import detect
 
 excluded_languages = ["uk", "ru"]
 
-def build_url(page = 1):
+def build_url(page = 1, year=2018):
     base = "https://core.ac.uk:443/api-v2/articles/search/"
     api_key = "1cEI2Xf4yzNwiOmQaVDTxlnsuZJdjKro"
-    query = "year:2018"
+    query = "year:" + str(year)
     
     url = base+query+"?pageSize=100&fulltext=true&apiKey="+api_key+"&page="+str(page)
     
     return url
 
-def get_total_pages():
-    url = build_url()
+def get_total_pages(year=2018):
+    url = build_url(year)
     with requests.get(url) as req:
         response = req.json()
         if not response["status"] == "OK":
@@ -95,12 +95,13 @@ def preprocess(text, title):
 Retrieves the articles from Core API
 Runs filter and preprocessing functions
 """
-def get_articles():
+def get_articles(year=2018):
+    import sys
     valid_articles = 0
     all_articles = 0
-    max_pages = 100
+    max_pages = 10000
     print("Contacting API...")
-    pages = get_total_pages()
+    pages = get_total_pages(year)
     if pages <= 0:
         return
     print("Starting article retrieval...")
@@ -117,7 +118,7 @@ def get_articles():
                 fulltext = article["fullText"].replace("\n"," ").replace("\t"," ")
                 text = preprocess(fulltext, title)
                 # If preprocessing filters out all text for some reason, 
-                # don't bother trying to sumamrize
+                # don't bother trying to summarize
                 if not text.strip():
                     continue
                 
@@ -126,9 +127,12 @@ def get_articles():
                 
                 yield article
                 valid_articles += 1
-    
+                print("Retrieving articles: ", valid_articles, end="\r")
+                sys.stdout.write("\033[F") # Cursor up one line
     
 def main():
     get_articles()
     
-main()
+if __name__ == "__main__":
+   # stuff only to run when not called via 'import' here
+   main()
