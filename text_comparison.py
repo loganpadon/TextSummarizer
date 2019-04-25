@@ -44,6 +44,31 @@ def Jaccard_similarity(doc1, doc2):
     return len(intersect) / (len(doc1_set) + len(doc2_set) - len(intersect))
 
 """
+Similarity using spaCy module
+Not sure how it does what it does
+"""
+def similarity_spacy(doc1, doc2):
+    import spacy
+    spacy_en = spacy.load('en_core_web_sm')
+    spacy_doc1 = spacy_en(doc1)
+    spacy_doc2 = spacy_en(doc2)
+
+    return spacy_doc1.similarity(spacy_doc2)
+
+"""
+Cosine similarity using TFIDF
+"""
+def cos_sim_tfidf(doc1, doc2, text=None):
+    from sklearn.feature_extraction.text import TfidfVectorizer
+    from sklearn.metrics.pairwise import cosine_similarity
+
+    if not text:
+        text = [doc1, doc2]
+    tfidf = TfidfVectorizer().fit_transform(text)
+    pairwise_similarity = (tfidf * tfidf.T).A
+    return pairwise_similarity[0][1]
+    
+"""
 Uses pretrained Doc2Vec model 
 Functions below for training model based on corpus of articles
 Seems to be garbage...
@@ -54,7 +79,7 @@ def cos_sim_doc2vec(doc1, doc2):
     
     vectors = list(get_doc_vectors(doc1, doc2))
     return cosine_similarity(vectors)[0][1]
-    
+
 """
 Gets articles using retrieve articles functionality
 Saves preprocessed article text to file
@@ -113,7 +138,8 @@ def main():
     with open('abstract_sample.txt','r') as file:
         doc1 = file.readline()
         doc2 = file.readline()
-    similarity = cos_sim_doc2vec(doc1, doc2)
+    #similarity = cos_sim_doc2vec(doc1, doc2)
+    similarity = cos_sim_tfidf(doc1, doc2)
     print(similarity)
 
 if __name__ == "__main__":
