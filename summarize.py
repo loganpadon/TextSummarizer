@@ -15,15 +15,12 @@ from datetime import datetime
 """
 Writes relevant data to file
 """
-def log(log_filename, summary, abstract, title, subjects, topics, types, word_count, similarities):
+def log(log_filename, summary, abstract, title, topics, types, word_count, similarities):
     
     with open(log_filename, "a+", encoding="utf8") as logfile:
         logfile.write("-"*20 + str(datetime.now()) + "-"*20 + "\n")
         logfile.write("Title: " + title.replace("\n","") + "\n")
         logfile.write("Word count: " + str(word_count) + "\n")
-        logfile.write("Subjects: " + ", ".join(subjects) + "\n")
-        logfile.write("Topics: " + ", ".join(topics) + "\n")
-        logfile.write("Types: " + ", ".join(types) + "\n")
         """
         for name, similarity in similarities.items():
             logfile.write(name + ": " + str(similarity) + "\n")
@@ -31,6 +28,8 @@ def log(log_filename, summary, abstract, title, subjects, topics, types, word_co
         logfile.write("Similarity: " + str(similarities["TFIDF Similarity"]) + "\n")
         logfile.write("Abstract: " + abstract.replace("\n","") + "\n")
         logfile.write("Basic summary: " + summary.replace("\n","")  +"\n")
+        logfile.write("Topics: " + ", ".join(topics) + "\n")
+        logfile.write("Types: " + ", ".join(types) + "\n")    
 
 """
 Counts word that match given regex
@@ -84,10 +83,10 @@ def run_summarize(articles = 200):
             #"Jaccard Similarity" : sim_jaccard, "TFIDF Similarity" : sim_tfidf}
         similarities = {"TFIDF Similarity" : sim_tfidf}
         word_count = get_word_count(text)
-        subjects = article["subjects"] if "subjects" in article.keys() else []
+        types = article["subjects"] if "subjects" in article.keys() else []
         topics = article["topics"] if "topics" in article.keys() else []
-        types = article["types"] if "types" in article.keys() else []
-        log(log_filename, basic_summary, abstract, article["title"], subjects, 
+        #types = article["types"] if "types" in article.keys() else []
+        log(log_filename, basic_summary, abstract, article["title"], 
             topics, types, word_count, similarities)
         valid_articles += 1
         if valid_articles == articles:
