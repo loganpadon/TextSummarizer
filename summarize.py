@@ -15,16 +15,22 @@ from datetime import datetime
 """
 Writes relevant data to file
 """
-def log(log_filename, summary, abstract, title, word_count, similarities):
+def log(log_filename, summary, abstract, title, subjects, topics, types, word_count, similarities):
     
     with open(log_filename, "a+", encoding="utf8") as logfile:
         logfile.write("-"*20 + str(datetime.now()) + "-"*20 + "\n")
-        logfile.write("Title: " + title + "\n")
+        logfile.write("Title: " + title.replace("\n","") + "\n")
         logfile.write("Word count: " + str(word_count) + "\n")
+        logfile.write("Subjects: " + ", ".join(subjects) + "\n")
+        logfile.write("Topics: " + ", ".join(topics) + "\n")
+        logfile.write("Types: " + ", ".join(types) + "\n")
+        """
         for name, similarity in similarities.items():
             logfile.write(name + ": " + str(similarity) + "\n")
-        logfile.write("Abstract: " + abstract + "\n")
-        logfile.write("Basic summary: " + summary  +"\n")
+        """
+        logfile.write("Similarity: " + str(similarities["TFIDF Similarity"]) + "\n")
+        logfile.write("Abstract: " + abstract.replace("\n","") + "\n")
+        logfile.write("Basic summary: " + summary.replace("\n","")  +"\n")
 
 """
 Counts word that match given regex
@@ -55,8 +61,8 @@ def run_summarize(articles = 200):
         if articles is None:
             continue
         text = article["preprocessed"]
-        title = article["title"].replace("\n", "")
-        abstract = article["description"].replace("\n", "").replace(r"\ud", " ")
+        title = article["title"].replace("\n", "").replace("\r","")
+        abstract = article["description"].replace("\n","").replace(r"\ud"," ").replace("\r","")
         # Summary must be same number of sentences as abstract
         abstract_len = len(sent_tokenize(abstract))
         basic_summary = basic_summarize(text, abstract_len)
@@ -66,24 +72,30 @@ def run_summarize(articles = 200):
             print("Empty summary for ", title, ":")
             print(text)
             continue
-        sim_spacy = text_comparison.similarity_spacy(basic_summary, abstract)
-        sim_doc2vec = text_comparison.cos_sim_doc2vec(basic_summary, abstract)
-        sim_jaccard = text_comparison.Jaccard_similarity(basic_summary, abstract)
+        #sim_spacy = text_comparison.similarity_spacy(basic_summary, abstract)
+        #sim_doc2vec = text_comparison.cos_sim_doc2vec(basic_summary, abstract)
+        #sim_jaccard = text_comparison.Jaccard_similarity(basic_summary, abstract)
         sim_tfidf = text_comparison.cos_sim_tfidf(basic_summary, abstract)
-        sims_spacy.append(sim_spacy)
-        sims_doc2vec.append(sim_doc2vec)
-        sims_jaccard.append(sim_jaccard)
+        #sims_spacy.append(sim_spacy)
+        #sims_doc2vec.append(sim_doc2vec)
+        #sims_jaccard.append(sim_jaccard)
         sims_tfidf.append(sim_tfidf)
-        similarities = {"Spacy Similarity" : sim_spacy, "Doc2Vec Similarity" : sim_doc2vec, 
-            "Jaccard Similarity" : sim_jaccard, "TFIDF Similarity" : sim_tfidf}
+        #similarities = {"Spacy Similarity" : sim_spacy, "Doc2Vec Similarity" : sim_doc2vec, 
+            #"Jaccard Similarity" : sim_jaccard, "TFIDF Similarity" : sim_tfidf}
+        similarities = {"TFIDF Similarity" : sim_tfidf}
         word_count = get_word_count(text)
-        log(log_filename, basic_summary, abstract, article["title"], word_count, similarities)
+        subjects = article["subjects"] if "subjects" in article.keys() else []
+        topics = article["topics"] if "topics" in article.keys() else []
+        types = article["types"] if "types" in article.keys() else []
+        log(log_filename, basic_summary, abstract, article["title"], subjects, 
+            topics, types, word_count, similarities)
         valid_articles += 1
         if valid_articles == articles:
             break
     
-    all_similarities = {"Spacy Similarities" : sims_spacy, "Doc2Vec Similarities" : sims_doc2vec,
-        "Jaccard Similarities" : sims_jaccard, "TFIDF Similarities" : sims_tfidf}
+    #all_similarities = {"Spacy Similarities" : sims_spacy, "Doc2Vec Similarities" : sims_doc2vec,
+        #"Jaccard Similarities" : sims_jaccard, "TFIDF Similarities" : sims_tfidf}
+    all_similarities = {"TFIDF Similarities" : sims_tfidf}
 
     print()
     print("Articles analyzed: ", valid_articles)
