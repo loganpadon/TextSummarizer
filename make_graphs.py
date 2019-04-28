@@ -11,8 +11,8 @@ FIELDS = 8
 i = 0
 word_counts = []
 similarity = []
-subjects = []
-sub_sim = [[]]
+types = []
+typ_sim = [[]]
 topics = []
 top_sim = [[]]
 
@@ -29,11 +29,11 @@ for line in log:
     elif line_number % FIELDS == 4:
         similarity.insert(i, float(line[line.index(':')+2:]))
     elif line_number % FIELDS == 0:
-        for sub in line[line.index(':')+2:].split(","):
-            if sub not in subjects:
-                subjects.append(sub)
-                sub_sim.append([])
-            sub_sim[subjects.index(sub)].append(similarity[i])
+        for typ in line[line.index(':')+2:].split(","):
+            if typ not in types:
+                types.append(typ)
+                typ_sim.append([])
+            typ_sim[types.index(typ)].append(similarity[i])
     elif line_number % FIELDS == 7:
         for top in line[line.index(':')+2:].split(","):
             if top not in topics:
@@ -43,7 +43,7 @@ for line in log:
     elif line_number % FIELDS == 1:
         i = 0
 
-sub_sim = sub_sim[:-1]
+typ_sim = typ_sim[:-1]
 top_sim = top_sim[:-1]
 
 top_sim.remove(top_sim[topics.index('\n')])
@@ -51,10 +51,10 @@ topics.remove('\n')
 
 # filter off entries with small samples
 i = 0
-while i < len(sub_sim):
-    if len(sub_sim[i]) < 10:
-        subjects.remove(subjects[sub_sim.index(sub_sim[i])])
-        sub_sim.remove(sub_sim[i])
+while i < len(typ_sim):
+    if len(typ_sim[i]) < 10:
+        types.remove(types[typ_sim.index(typ_sim[i])])
+        typ_sim.remove(typ_sim[i])
     else:
         i+=1
 
@@ -75,12 +75,12 @@ for l in range(len(topics)):
 plt.plot(word_counts, similarity, color='blue')
 plt.show()
 
-y_pos = np.arange(len(subjects))
+y_pos = np.arange(len(types))
 avg = []
-for x in sub_sim:
+for x in typ_sim:
     avg.append(statistics.mean(x))
 plt.bar(y_pos, avg, align='center', alpha=0.5)
-plt.xticks(y_pos, subjects)
+plt.xticks(y_pos, types)
 plt.show()
 
 y_pos = np.arange(len(topics))
