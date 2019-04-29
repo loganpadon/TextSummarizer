@@ -9,6 +9,7 @@ import pickle
 from keras import Input, Model
 from keras.layers import Dense
 from keras.layers import LSTM
+from string import ascii_lowercase
 
 batch_size = 64
 epochs = 110
@@ -22,19 +23,18 @@ num_samples = 10000
 # i = 0
 # for story in get_articles(year=2017):
 #     input_text = story['fullText']
-#     for highlight in story['description']:
-#         target_text = highlight
-#         # We use "tab" as the "start sequence" character
-#         # for the targets, and "\n" as "end sequence" character.
-#         target_text = '\t' + target_text + '\n'
-#         input_texts.append(input_text)
-#         target_texts.append(target_text)
-#         for char in input_text:
-#             if char not in input_characters:
-#                 input_characters.add(char)
-#         for char in target_text:
-#             if char not in target_characters:
-#                 target_characters.add(char)
+#     target_text = story['description']
+#     # We use "tab" as the "start sequence" character
+#     # for the targets, and "\n" as "end sequence" character.
+#     target_text = '\t' + target_text + '\n'
+#     input_texts.append(input_text)
+#     target_texts.append(target_text)
+#     for char in input_text:
+#         if char not in input_characters:
+#             input_characters.add(char)
+#     for char in target_text:
+#         if char not in target_characters:
+#             target_characters.add(char)
 #     i = i + 1
 #     if i % 10 == 0:
 #         input_characters_to_file = sorted(list(input_characters))
@@ -54,7 +54,7 @@ target_texts = asdf[3]
 asdf = None
 input_characters = sorted(list(input_characters))
 target_characters = sorted(list(target_characters))
-# with open('objs2017.pkl','w') as f:
+# with open('objs2017.pkl','wb') as f:
 #     pickle.dump([input_characters, target_characters], f)
 num_encoder_tokens = len(input_characters)
 num_decoder_tokens = len(target_characters)
@@ -92,10 +92,27 @@ def define_models(n_input, n_output, n_units):
     # return all models
     return model, encoder_model, decoder_model
 
+def string_vectorizer(strng, alphabet=ascii_lowercase):
+    vector = [[0 if char != letter else 1 for char in alphabet]
+                  for letter in strng]
+    return vector
+
 model, encoder_model, decoder_model = define_models(num_encoder_tokens, num_decoder_tokens, latent_dim)
 # Run training
 model.compile(optimizer='rmsprop', loss='categorical_crossentropy')
-model.fit([input_characters, target_characters], target_texts, #todo figure out what these should be
+itVector = []
+for input_text in input_texts:
+    input_text = input_text.lower()
+    vector = string_vectorizer(input_text)
+    itVector.append(vector)
+
+ttVector = []
+for target_text in target_texts:
+    target_text = target_text.lower()
+    vector = string_vectorizer(target_text)
+    ttVector.append(vector)
+
+model.fit([itVector, ttVector], ttVector, #todo figure out what these should be
     batch_size=batch_size,
     epochs=epochs,
     validation_split=0.2)
