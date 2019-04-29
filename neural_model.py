@@ -1,4 +1,5 @@
 import pickle
+from retrieve_article import  get_articles
 from numpy import array
 from numpy import append
 from numpy import zeros
