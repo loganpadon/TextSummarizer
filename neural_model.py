@@ -62,6 +62,7 @@ print('Number of unique output tokens:', num_decoder_tokens)
 print('Max sequence length for inputs:', max_encoder_seq_length)
 print('Max sequence length for outputs:', max_decoder_seq_length)
 
+
 def define_models(n_input, n_output, n_units):
     # define training encoder
     encoder_inputs = Input(shape=(None, n_input))
@@ -88,19 +89,23 @@ def define_models(n_input, n_output, n_units):
     # return all models
     return model, encoder_model, decoder_model
 
+
 def string_vectorizer(strng, alphabet=ascii_lowercase):
-    vector = array([0 if char != letter else 1 for char in alphabet]
-                  for letter in strng)
+    vector = array([0 if char != letter else 1 for char in alphabet
+                  for letter in strng])
     return vector
+
 
 model, encoder_model, decoder_model = define_models(num_encoder_tokens, num_decoder_tokens, latent_dim)
 # Run training
 model.compile(optimizer='rmsprop', loss='categorical_crossentropy')
-itVector = []
+itVector = zeros(shape=(len(input_texts), 100, 26), dtype=int)
 for input_text in input_texts:
+    i = 0
     input_text = input_text.lower()
     vector = string_vectorizer(input_text)
-    append(itVector, vector)
+    itVector[i] = vector
+    i += 1
 
 ttVector = []
 for target_text in target_texts:
@@ -109,8 +114,8 @@ for target_text in target_texts:
     append(ttVector, vector)
 
 model.fit([array(itVector), array(ttVector)], ttVector, #todo figure out what these should be
-    batch_size=batch_size,
-    epochs=epochs,
-    validation_split=0.2)
+          batch_size=batch_size,
+          epochs=epochs,
+          validation_split=0.2)
 # Save model
 model.save('neural_model.h5')
