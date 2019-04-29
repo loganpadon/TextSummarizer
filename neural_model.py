@@ -91,29 +91,28 @@ def define_models(n_input, n_output, n_units):
     return model, encoder_model, decoder_model
 
 
-def string_vectorizer(strng, maxSize, alphabet=ascii_lowercase):
+max_vector_size = 200000
+
+def string_vectorizer(strng, alphabet=ascii_lowercase):
     # vector = array([0 if char != letter else 1 for char in alphabet
     #               for letter in strng])
-    vector = zeros(shape=(maxSize, len(alphabet)))
+    vector = zeros(shape=(max_vector_size, len(alphabet)))
     i = 0
-    for x in strng:
+    for i in range(min(len(strng), max_vector_size)):
+        x = strng[i]
         j = 0
         for y in alphabet:
-            j += 1
             if x == y:
                 vector[i, j] = 1
-        i += 1
-        if i > maxSize:
-            break
+            j += 1    
     return vector
-
 
 model, encoder_model, decoder_model = define_models(num_encoder_tokens, num_decoder_tokens, latent_dim)
 # Run training
 model.compile(optimizer='rmsprop', loss='categorical_crossentropy')
-itVector = zeros(shape=(len(input_texts), 100, 26), dtype=int)
+itVector = zeros(shape=(len(input_texts), max_vector_size, 26), dtype=int)
+i = 0
 for input_text in input_texts:
-    i = 0
     input_text = input_text.lower()
     vector = string_vectorizer(input_text, 100)
     itVector[i] = vector
