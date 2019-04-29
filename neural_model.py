@@ -90,10 +90,10 @@ def define_models(n_input, n_output, n_units):
     return model, encoder_model, decoder_model
 
 
-def string_vectorizer(strng, alphabet=ascii_lowercase):
+def string_vectorizer(strng, maxSize, alphabet=ascii_lowercase):
     # vector = array([0 if char != letter else 1 for char in alphabet
     #               for letter in strng])
-    vector = zeros(shape=(len(strng), len(alphabet)))
+    vector = zeros(shape=(maxSize, len(alphabet)))
     i = 0
     for x in strng:
         j = 0
@@ -102,6 +102,8 @@ def string_vectorizer(strng, alphabet=ascii_lowercase):
             if x == y:
                 vector[i, j] = 1
         i += 1
+        if i > maxSize:
+            break
     return vector
 
 
@@ -112,7 +114,7 @@ itVector = zeros(shape=(len(input_texts), 100, 26), dtype=int)
 for input_text in input_texts:
     i = 0
     input_text = input_text.lower()
-    vector = string_vectorizer(input_text)
+    vector = string_vectorizer(input_text, 100)
     itVector[i] = vector
     i += 1
 
