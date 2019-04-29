@@ -1,11 +1,7 @@
-import pandas as pd
-import re
-from nltk.corpus import stopwords
-from pickle import dump, load
-from retrieve_article import get_articles
-import tensorflow as tf
-import math
 import pickle
+from numpy import array
+from numpy import append
+from numpy import zeros
 from keras import Input, Model
 from keras.layers import Dense
 from keras.layers import LSTM
@@ -93,24 +89,24 @@ def define_models(n_input, n_output, n_units):
     return model, encoder_model, decoder_model
 
 def string_vectorizer(strng, alphabet=ascii_lowercase):
-    vector = [[0 if char != letter else 1 for char in alphabet]
-                  for letter in strng]
+    vector = array([0 if char != letter else 1 for char in alphabet]
+                  for letter in strng)
     return vector
 
 model, encoder_model, decoder_model = define_models(num_encoder_tokens, num_decoder_tokens, latent_dim)
 # Run training
 model.compile(optimizer='rmsprop', loss='categorical_crossentropy')
-itVector = []
+itVector = zeros([1,1,1])
 for input_text in input_texts:
     input_text = input_text.lower()
     vector = string_vectorizer(input_text)
-    itVector.append(vector)
+    append(itVector, vector)
 
-ttVector = []
+ttVector = zeros([1,1,1])
 for target_text in target_texts:
     target_text = target_text.lower()
     vector = string_vectorizer(target_text)
-    ttVector.append(vector)
+    append(ttVector, vector)
 
 model.fit([itVector, ttVector], ttVector, #todo figure out what these should be
     batch_size=batch_size,
