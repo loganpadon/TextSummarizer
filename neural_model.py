@@ -113,7 +113,7 @@ itVector = zeros(shape=(len(input_texts), max_vector_size, 26), dtype=int)
 i = 0
 for input_text in input_texts:
     input_text = input_text.lower()
-    vector = string_vectorizer(input_text)
+    vector = string_vectorizer(input_text, 100)
     itVector[i] = vector
     i += 1
 
