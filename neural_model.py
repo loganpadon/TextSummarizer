@@ -96,19 +96,19 @@ def string_vectorizer(strng, alphabet=ascii_lowercase):
 model, encoder_model, decoder_model = define_models(num_encoder_tokens, num_decoder_tokens, latent_dim)
 # Run training
 model.compile(optimizer='rmsprop', loss='categorical_crossentropy')
-itVector = zeros([1,1,1])
+itVector = []
 for input_text in input_texts:
     input_text = input_text.lower()
     vector = string_vectorizer(input_text)
     append(itVector, vector)
 
-ttVector = zeros([1,1,1])
+ttVector = []
 for target_text in target_texts:
     target_text = target_text.lower()
     vector = string_vectorizer(target_text)
     append(ttVector, vector)
 
-model.fit([itVector, ttVector], ttVector, #todo figure out what these should be
+model.fit([array(itVector), array(ttVector)], ttVector, #todo figure out what these should be
     batch_size=batch_size,
     epochs=epochs,
     validation_split=0.2)
