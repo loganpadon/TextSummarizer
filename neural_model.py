@@ -91,8 +91,17 @@ def define_models(n_input, n_output, n_units):
 
 
 def string_vectorizer(strng, alphabet=ascii_lowercase):
-    vector = array([0 if char != letter else 1 for char in alphabet
-                  for letter in strng])
+    # vector = array([0 if char != letter else 1 for char in alphabet
+    #               for letter in strng])
+    vector = zeros(shape=(len(strng), len(alphabet)))
+    i = 0
+    for x in strng:
+        j = 0
+        for y in alphabet:
+            j += 1
+            if x == y:
+                vector[i, j] = 1
+        i += 1
     return vector
 
 
