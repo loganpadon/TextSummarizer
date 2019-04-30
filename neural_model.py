@@ -1,14 +1,12 @@
-import pandas as pd
-import re
-from nltk.corpus import stopwords
-from pickle import dump, load
-from retrieve_article import get_articles
-import tensorflow as tf
-import math
 import pickle
+from retrieve_article import  get_articles
+from numpy import array
+from numpy import append
+from numpy import zeros
 from keras import Input, Model
 from keras.layers import Dense
 from keras.layers import LSTM
+from string import ascii_lowercase
 
 batch_size = 64
 epochs = 110
@@ -22,19 +20,18 @@ num_samples = 10000
 # i = 0
 # for story in get_articles(year=2017):
 #     input_text = story['fullText']
-#     for highlight in story['description']:
-#         target_text = highlight
-#         # We use "tab" as the "start sequence" character
-#         # for the targets, and "\n" as "end sequence" character.
-#         target_text = '\t' + target_text + '\n'
-#         input_texts.append(input_text)
-#         target_texts.append(target_text)
-#         for char in input_text:
-#             if char not in input_characters:
-#                 input_characters.add(char)
-#         for char in target_text:
-#             if char not in target_characters:
-#                 target_characters.add(char)
+#     target_text = story['description']
+#     # We use "tab" as the "start sequence" character
+#     # for the targets, and "\n" as "end sequence" character.
+#     target_text = '\t' + target_text + '\n'
+#     input_texts.append(input_text)
+#     target_texts.append(target_text)
+#     for char in input_text:
+#         if char not in input_characters:
+#             input_characters.add(char)
+#     for char in target_text:
+#         if char not in target_characters:
+#             target_characters.add(char)
 #     i = i + 1
 #     if i % 10 == 0:
 #         input_characters_to_file = sorted(list(input_characters))
@@ -54,7 +51,7 @@ target_texts = asdf[3]
 asdf = None
 input_characters = sorted(list(input_characters))
 target_characters = sorted(list(target_characters))
-# with open('objs2017.pkl','w') as f:
+# with open('objs2017.pkl','wb') as f:
 #     pickle.dump([input_characters, target_characters], f)
 num_encoder_tokens = len(input_characters)
 num_decoder_tokens = len(target_characters)
@@ -65,6 +62,7 @@ print('Number of unique input tokens:', num_encoder_tokens)
 print('Number of unique output tokens:', num_decoder_tokens)
 print('Max sequence length for inputs:', max_encoder_seq_length)
 print('Max sequence length for outputs:', max_decoder_seq_length)
+
 
 def define_models(n_input, n_output, n_units):
     # define training encoder
@@ -92,12 +90,43 @@ def define_models(n_input, n_output, n_units):
     # return all models
     return model, encoder_model, decoder_model
 
+
+max_vector_size = 200000
+
+def string_vectorizer(strng, alphabet=ascii_lowercase):
+    # vector = array([0 if char != letter else 1 for char in alphabet
+    #               for letter in strng])
+    vector = zeros(shape=(max_vector_size, len(alphabet)))
+    i = 0
+    for i in range(min(len(strng), max_vector_size)):
+        x = strng[i]
+        j = 0
+        for y in alphabet:
+            if x == y:
+                vector[i, j] = 1
+            j += 1    
+    return vector
+
 model, encoder_model, decoder_model = define_models(num_encoder_tokens, num_decoder_tokens, latent_dim)
 # Run training
 model.compile(optimizer='rmsprop', loss='categorical_crossentropy')
-model.fit([input_characters, target_characters], target_texts, #todo figure out what these should be
-    batch_size=batch_size,
-    epochs=epochs,
-    validation_split=0.2)
+itVector = zeros(shape=(len(input_texts), max_vector_size, 26), dtype=int)
+i = 0
+for input_text in input_texts:
+    input_text = input_text.lower()
+    vector = string_vectorizer(input_text, 100)
+    itVector[i] = vector
+    i += 1
+
+ttVector = []
+for target_text in target_texts:
+    target_text = target_text.lower()
+    vector = string_vectorizer(target_text)
+    append(ttVector, vector)
+
+model.fit([array(itVector), array(ttVector)], ttVector, #todo figure out what these should be
+          batch_size=batch_size,
+          epochs=epochs,
+          validation_split=0.2)
 # Save model
 model.save('neural_model.h5')
