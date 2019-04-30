@@ -91,7 +91,7 @@ def rank_sentences(doc, title, doc_matrix, feature_names, top_n=3):
                  
     # Apply Similariy Score Weightings
     similarity_scores = [similarity_score(title, sent) for sent in sents]
-    scored_sents = np.array(sent_values) + np.array(similarity_scores)
+    #scored_sents = np.array(sent_values) + np.array(similarity_scores)
                  
     # Apply Position Weights
     ranked_sents = [sent*(i/len(sent_values)) for i, sent in enumerate(sent_values)]
