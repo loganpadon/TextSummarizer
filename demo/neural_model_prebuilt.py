@@ -11,12 +11,12 @@ from retrieve_article import get_articles
 
 def train():
     LOAD_EXISTING_WEIGHTS = False
-    LOAD_DFARTICLES = False
+    LOAD_DFARTICLES = True
 
     np.random.seed(42)
-    data_dir_path = 'E:\PycharmProjects\TextSummarizer\demo\data'
-    report_dir_path = 'E:\PycharmProjects\TextSummarizer\demo\\reports'
-    model_dir_path = 'E:\PycharmProjects\TextSummarizer\demo\models'
+    data_dir_path = 'data'
+    report_dir_path = 'reports'
+    model_dir_path = 'models'
 
     print('loading training data')
     if not LOAD_DFARTICLES:
@@ -61,9 +61,9 @@ def train():
 
     history = summarizer.fit(Xtrain, Ytrain, Xtest, Ytest, epochs=100)
 
-    history_plot_file_path = report_dir_path + '/' + Seq2SeqSummarizer.model_name + '-history.png'
+    history_plot_file_path = report_dir_path + '\\' + Seq2SeqSummarizer.model_name + '-history.png'
     if LOAD_EXISTING_WEIGHTS:
-        history_plot_file_path = report_dir_path + '/' + Seq2SeqSummarizer.model_name + '-history-v' + str(
+        history_plot_file_path = report_dir_path + '\\' + Seq2SeqSummarizer.model_name + '-history-v' + str(
             summarizer.version) + '.png'
     plot_and_save_history(history, summarizer.model_name, history_plot_file_path, metrics={'loss', 'acc'})
 
