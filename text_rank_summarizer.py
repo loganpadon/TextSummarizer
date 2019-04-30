@@ -4,7 +4,7 @@
 import numpy as np
 import pandas as pd
 import nltk
-nltk.download('punkt') # one time execution
+#nltk.download('punkt') # one time execution
 import re
 from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
@@ -53,9 +53,9 @@ def vectors(clean_sentences):
         sentence_vectors.append(v)
 
     # similarity matrix
-    sim_mat = np.zeros([len(sentences), len(sentences)])
-    for i in range(len(sentences)):
-        for j in range(len(sentences)):
+    sim_mat = np.zeros([len(clean_sentences), len(clean_sentences)])
+    for i in range(len(clean_sentences)):
+        for j in range(len(clean_sentences)):
             if i != j:
                 sim_mat[i][j] = cosine_similarity(sentence_vectors[i].reshape(1,100), sentence_vectors[j].reshape(1,100))[0,0]
 
@@ -64,7 +64,7 @@ def vectors(clean_sentences):
 #page rank
 import networkx as nx
 
-def ranked_sentences(sentences):
+def ranked_sentences(sentences, top=5):
     clean_sentences = cleans_sentences(sentences)
     sentence_vectors, sim_mat = vectors(clean_sentences)
     nx_graph = nx.from_numpy_array(sim_mat)
@@ -74,20 +74,24 @@ def ranked_sentences(sentences):
     
     #Please chang the number of sentences for summary length!!!!!
     # Extract top 10 sentences as the summary
-    for i in range(10):
-        print(ranked_sentences[i][1])
+    summary = ""
+    for i in range(top):
+        summary += ranked_sentences[i][1]
+    return summary
 
 
+def text_rank_summarize(document, sent_num=5):
+    sentences = sent_tokenize(document)
+    summary = ranked_sentences(sentences, sent_num)
+    return summary
 
-
-
+"""
 
 #comment line 80 though 92 since you will be using you own sentences.
 #--------------------------------------------------------------------------------
 #change the code below for your sentences
 #--------------------------------------------------------------------------------
 df = pd.read_csv("tennis_articles_v4.csv")
-
 
 sentences = []
 for s in df['article_text']:
@@ -96,12 +100,8 @@ for s in df['article_text']:
 sentences = [y for x in sentences for y in x] # flatten list of sentences:
 #--------------------------------------------------------------------------------
 
-
-
-
-
-
 #!!!!!!!!!!!!!!!!!!!!!
 #run the program
 ranked_sentences(sentences)
 
+"""

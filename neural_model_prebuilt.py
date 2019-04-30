@@ -21,12 +21,12 @@ def train():
     df = pd.DataFrame({'abstract': [], 'text': []})
     for article in get_articles(year=2017):
         i = 0
-        df.append({'abstract': article['description'], 'text': article['fullText']})
+        df.append({'abstract': article['description'], 'text': article['preprocessed']})
         i += 1
         if i % 10 == 0:
             with open('dfArticles2017.pkl', 'wb') as f:
                 pickle.dump([df, i], f)
-        if i >= 100:
+        if i >= 10000:
             break
 
     print('extract configuration from input texts ...')

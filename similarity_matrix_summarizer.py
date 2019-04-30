@@ -2,17 +2,16 @@
 
 from nltk.corpus import stopwords
 from nltk.cluster.util import cosine_distance
+from nltk.tokenize import sent_tokenize
 import numpy as np
 import networkx as nx
 
-def read_article(file_name):
-    file = open(file_name, "r")
-    filedata = file.readlines()
-    article = filedata[0].split(". ")
+def read_article(document):
+    article = sent_tokenize(document)
     sentences = []
     
     for sentence in article:
-        print(sentence)
+        #print(sentence)
         sentences.append(sentence.replace("[^a-zA-Z]", " ").split(" "))
     sentences.pop()
     
@@ -57,12 +56,12 @@ def build_similarity_matrix(sentences, stop_words):
     return similarity_matrix
 
 
-def generate_summary(file_name, top_n=5):
+def sim_matrix_summarize(document, top_n=5):
     stop_words = stopwords.words('english')
     summarize_text = []
     
-    # Step 1 - Read text anc split it
-    sentences =  read_article(file_name)
+    # Step 1 - Read text and split it
+    sentences =  read_article(document)
     
     # Step 2 - Generate Similary Martix across sentences
     sentence_similarity_martix = build_similarity_matrix(sentences, stop_words)
@@ -73,13 +72,14 @@ def generate_summary(file_name, top_n=5):
     
     # Step 4 - Sort the rank and pick top sentences
     ranked_sentence = sorted(((scores[i],s) for i,s in enumerate(sentences)), reverse=True)
-    print("Indexes of top ranked_sentence order are ", ranked_sentence)
+    #print("Indexes of top ranked_sentence order are ", ranked_sentence)
     
     for i in range(top_n):
         summarize_text.append(" ".join(ranked_sentence[i][1]))
     
     # Step 5 - Offcourse, output the summarize texr
-    print("Summarize Text: \n", ". ".join(summarize_text))
+    #print("Summarize Text: \n", ". ".join(summarize_text))
+    return " ".join(summarize_text)
 
 # function to call
-generate_summary( "msft.txt", 2)
+#generate_summary( "msft.txt", 2)

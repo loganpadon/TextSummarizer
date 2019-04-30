@@ -64,7 +64,7 @@ def merge_acronyms(s):
         s = s.replace(a, a.replace('.',''))
     return s
 
-def rank_sentences(doc, doc_matrix, feature_names, top_n=3):
+def rank_sentences(doc, title, doc_matrix, feature_names, top_n=3):
     """Returns top_n sentences. Theses sentences are then used as summary
         of document.
         
@@ -81,9 +81,9 @@ def rank_sentences(doc, doc_matrix, feature_names, top_n=3):
     sentences = [nltk.word_tokenize(sent) for sent in sents]
     sentences = [[w for w in sent if nltk.pos_tag([w])[0][1] in NOUNS]
                  for sent in sentences]
-                 tfidf_sent = [[doc_matrix[feature_names.index(w.lower())]
-                                for w in sent if w.lower() in feature_names]
-                               for sent in sentences]
+    tfidf_sent = [[doc_matrix[feature_names.index(w.lower())]
+                for w in sent if w.lower() in feature_names]
+                for sent in sentences]
                  
     # Calculate Sentence Values
     doc_val = sum(doc_matrix)
@@ -100,6 +100,38 @@ def rank_sentences(doc, doc_matrix, feature_names, top_n=3):
     ranked_sents = sorted(ranked_sents, key=lambda x: x[1] *-1)
                  
     return ranked_sents[:top_n]
+
+def tf_idf_summarize(document, title, sent_num=5):
+    cleaned_document = clean_document(document)
+    doc = remove_stop_words(cleaned_document)
+    
+    # Merge corpus data and new document data
+    data = [' '.join(document) for document in doc]
+    train_data = set(data + [doc])
+    
+    # Fit and Transform the term frequencies into a vector
+    count_vect = CountVectorizer()
+    count_vect = count_vect.fit(train_data)
+    freq_term_matrix = count_vect.transform(train_data)
+    feature_names = count_vect.get_feature_names()
+    
+    # Fit and Transform the TfidfTransformer
+    tfidf = TfidfTransformer(norm="l2")
+    tfidf.fit(freq_term_matrix)
+    
+    # Get the dense tf-idf matrix for the document
+    story_freq_term_matrix = count_vect.transform([doc])
+    story_tfidf_matrix = tfidf.transform(story_freq_term_matrix)
+    story_dense = story_tfidf_matrix.todense()
+    doc_matrix = story_dense.tolist()[0]
+    
+    # Get Top Ranking Sentences and join them as a summary
+    top_sents = rank_sentences(doc, title, doc_matrix, feature_names, sent_num)
+    sentences = nltk.sent_tokenize(document)
+    summary = ' '.join([sentences[i] for i in [pair[0] for pair in top_sents]])
+    summary = ' '.join(summary.split())
+
+    return summary
 
 if __name__ == '__main__':
     # Load corpus data used to train the TF-IDF Transformer
@@ -136,5 +168,4 @@ if __name__ == '__main__':
     top_sents = rank_sentences(doc, doc_matrix, feature_names)
     summary = '.'.join([cleaned_document.split('.')[i]
                         for i in [pair[0] for pair in top_sents]])
-                        summary = ' '.join(summary.split())
-                        print summary
+    summary = ' '.join(summary.split())
