@@ -11,12 +11,12 @@ from retrieve_article import get_articles
 
 def train():
     LOAD_EXISTING_WEIGHTS = False
-    LOAD_DFARTICLES = True
+    LOAD_DFARTICLES = False
 
     np.random.seed(42)
-    data_dir_path = 'data'
-    report_dir_path = 'reports'
-    model_dir_path = 'models'
+    data_dir_path = 'E:\PycharmProjects\TextSummarizer\demo\data'
+    report_dir_path = 'E:\PycharmProjects\TextSummarizer\demo\\reports'
+    model_dir_path = 'E:\PycharmProjects\TextSummarizer\demo\models'
 
     print('loading training data')
     if not LOAD_DFARTICLES:
@@ -59,11 +59,11 @@ def train():
 
     Xtrain, Xtest, Ytrain, Ytest = train_test_split(X, Y, test_size=0.2, random_state=42)
 
-    history = summarizer.fit(Xtrain, Ytrain, Xtest, Ytest, epochs=15)
+    history = summarizer.fit(Xtrain, Ytrain, Xtest, Ytest, epochs=100)
 
-    history_plot_file_path = report_dir_path + '\\' + Seq2SeqSummarizer.model_name + '-history.png'
+    history_plot_file_path = report_dir_path + '/' + Seq2SeqSummarizer.model_name + '-history.png'
     if LOAD_EXISTING_WEIGHTS:
-        history_plot_file_path = report_dir_path + '\\' + Seq2SeqSummarizer.model_name + '-history-v' + str(
+        history_plot_file_path = report_dir_path + '/' + Seq2SeqSummarizer.model_name + '-history-v' + str(
             summarizer.version) + '.png'
     plot_and_save_history(history, summarizer.model_name, history_plot_file_path, metrics={'loss', 'acc'})
 
@@ -71,20 +71,20 @@ def train():
 def test():
     LOAD_DFARTICLES = False
     np.random.seed(42)
-    data_dir_path = 'data'  # refers to the demo/data folder
-    model_dir_path = 'models'  # refers to the demo/models folder
+    data_dir_path = './data'  # refers to the demo/data folder
+    model_dir_path = './models'  # refers to the demo/models folder
 
     print('loading validation data')
     if not LOAD_DFARTICLES:
         df = pd.DataFrame(columns=['abstract', 'text'])
         i = 0
         for article in get_articles(year=2018):
-            #print(i)
+            print(i)
             tempDF = pd.DataFrame({'abstract': [article['description']], 'text': [article['fullText']]})
             df = df.append(tempDF, ignore_index=True)
             if i % 10 == 0:
                 with open('dfArticles2018.pkl', 'wb') as f:
-                    #print("dumpin time")
+                    print("dumpin time")
                     pickle.dump([df, i], f)
             if i >= 100:
                 break
@@ -107,11 +107,24 @@ def test():
         x = X[i]
         actual_headline = Y[i]
         headline = summarizer.summarize(x)
-        #print('Article: ', x)
-        print('Original Headline: ', actual_headline)
+        print('Article: ', x)
         print('Generated Headline: ', headline)
-    
+        print('Original Headline: ', actual_headline)
+
+def testStr(str):
+    np.random.seed(42)
+    data_dir_path = './data'  # refers to the demo/data folder
+    model_dir_path = './models'  # refers to the demo/models folder
+
+    config = np.load(Seq2SeqSummarizer.get_config_file_path(model_dir_path=model_dir_path), allow_pickle=True).item()
+
+    summarizer = Seq2SeqSummarizer(config)
+    summarizer.load_weights(weight_file_path=Seq2SeqSummarizer.get_weight_file_path(model_dir_path=model_dir_path))
+    headline = summarizer.summarize(str)
+    print('Generated Headline: ', headline)
+
+
 
 if __name__ == "__main__":
-    #train()
+    train()
     test()
