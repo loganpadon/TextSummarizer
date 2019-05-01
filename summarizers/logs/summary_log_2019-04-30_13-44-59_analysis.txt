@@ -1,0 +1,23 @@
+Basic Summary
+Mean Similarity: 0.33674860668041223
+Median Similarity: 0.32417820800814107
+Minimum Similarity: 0.0
+Maximum Similarity: 0.8651856847454955
+
+Sim_matrix Summary
+Mean Similarity: 0.4233823629232718
+Median Similarity: 0.38216974100200446
+Minimum Similarity: 0.0
+Maximum Similarity: 0.9999999999999993
+
+Text_rank Summary
+Mean Similarity: 0.3691870494723206
+Median Similarity: 0.3545689617740119
+Minimum Similarity: 0.017192767671702393
+Maximum Similarity: 0.9999999999999993
+
+Frequency Summary
+Mean Similarity: 0.4016188007486129
+Median Similarity: 0.3645015476602606
+Minimum Similarity: 0.0
+Maximum Similarity: 0.9999999999999993
