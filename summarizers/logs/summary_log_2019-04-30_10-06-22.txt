@@ -1,0 +1,196 @@
+--------------------2019-04-30 10:06:56.220063--------------------
+Title: Making family: the journey into exile of a South Sudan refugee - part 2 #LSEreturn
+Word count: 1695
+Abstract: Through the story of Chol, LSE’s Naomi Pendle explores the meaning of exile and the lived experience of being a refugee through cycles of displacement and return. In the first article of this two-part series, Pendle tells us how Chol rebuilt home after years spent in exile. Now, LSE’s Naomi Pendle narrates Chol’s return into exile, a journey that was in itself a return and cemented his ability to build a family
+basic similarity: 0.34753237713708945
+basic summary: Now, LSE’s Naomi Pendle narrates Chol’s return into exile, a journey that was in itself a return and cemented his ability to build a family. It was these networks, as much as a journey to a safe space, that he sought to cement as safety for himself, his wife and his son. Yet, they knew that the journey would be fraught with dangers and force them to weave between government and rebel held territories.
+sim_matrix similarity: 0.256625691072223
+sim_matrix summary: Safety for Chol was the return to northern Sudan and the familiar values of business. He feared others would advise against this journey as people had already tried to reach Khartoum and not all had been safe. Yet, they knew that the journey would be fraught with dangers and force them to weave between government and rebel held territories.
+text_rank similarity: 0.15922062808544388
+text_rank summary: He feared others would advise against this journey as people had already tried to reach Khartoum and not all had been safe.It was these networks, as much as a journey to a safe space, that he sought to cement as safety for himself, his wife and his son.There they could receive treatment for his wife and stay in his in-laws’ empty house in the city.
+tfidf similarity: 0.80758488290485
+tfidf summary: Making Family: The Journey into Exile of a South Sudan Refugee – Part 2 #LSEreturn Through the story of Chol, LSE’s Naomi Pendle explores the meaning of exile and the lived experience of being a refugee through cycles of displacement and return..Chol’s Journey Chol’s account of his journey into exile and being a refugee starts with his family..Now, LSE’s Naomi Pendle narrates Chol’s return into exile, a journey that was in itself a return and cemented his ability to build a family.
+Topics: HQ The family. Marriage. Woman, JV Colonies and colonization. Emigration and immigration. International migration
+Types: Website, NonPeerReviewed
+--------------------2019-04-30 10:07:07.099977--------------------
+Title: "Inflicted starvation": the link between conflict and famine
+Word count: 1107
+Abstract: Haisley Wert, MSc Development Management candidate, reflects on a recent public lecture from Alex de Waal, Executive Director of the World Peace Foundation and Research Professor at The Fletcher School, about his new book, Mass Starvation: The History and Future of Famine
+basic similarity: 0.33647452804117206
+basic summary: de Waal changes the conversation, escorting starvation (the causal and controversial cousin of famine) into the room and appropriately politicizing it.
+sim_matrix similarity: 0.9261385967575114
+sim_matrix summary: “Inflicted Starvation”: The Link Between Conflict and Famine Haisley Wert, MSc Development Management candidate, reflects on a recent public lecture from Alex de Waal, Executive Director of the World Peace Foundation and Research Professor at The Fletcher School, about his new book, Mass Starvation: The History and Future of Famine.
+text_rank similarity: 0.17524083006163027
+text_rank summary: As he wrote in his 1999 piece, Democracy as a Global Value, “in the terrible history of famines in the world, no substantial famine has ever occurred in any independent and democratic country with a relatively free press” (Sen 1999: 7 and 8).
+tfidf similarity: 0.6165889583229124
+tfidf summary: Mass Starvation: The History and Future of Famine Hosted by LSE, the Firoz Lalji Centre for Africa Thursday, January 25th, 2018 Alex de Waal, Executive Director of the World Peace Foundation and Research Professor at The Fletcher School, squarely addressed dangerous misconceptions about starvation during the lecture “Mass Starvation: The History and Future of Famine”.
+Topics: HV Social pathology. Social and public welfare. Criminology, RA0421 Public health. Hygiene. Preventive Medicine
+Types: Website, NonPeerReviewed
+--------------------2019-04-30 10:07:17.827312--------------------
+Title: Young people are highly critical of Brexit and fear the insularity it could bring
+Word count: 1070
+Abstract: Most young people did not support Brexit and the referendum result left many feeling frustrated and disempowered, write Shakuntala Banaji and Sam Mejias (LSE). They fear the vote will make the UK more insular and are highly critical of the way the campaign was conducted. In focus groups, they showed a strong understanding of the EU – and want a Brexit settlement that tackles inequality as well as ensuring Britain is an open and welcoming country
+basic similarity: 0.32409041521935816
+basic summary: A minority of respondents asserted that the referendum and subsequent events had been a ‘participation catalyst’ for young people to become more politically active. As soon as people voted leave, there were attacks on minorities…I don’t know [if] people thought it was more OK to be racist, because they were leaving [the EU]. Secondly, young people expressed dissatisfaction that the oldest generations (65+) should have such a disproportionate influence on the futures of the youngest citizens.
+sim_matrix similarity: 0.45866675165109705
+sim_matrix summary: With no funding, but assisted by a fantastic group of youth partners (including youth participation NGO My Life My Say and the All Party Parliamentary Group on a Better Brexit for Young People) we set up a series of focus groups across the UK to find out what young people from 13 to 30 think and feel about Brexit, and what they want out of the Brexit process. (Youth participant from Falkirk & Clackmannanshire, Scotland) Priorities and hopes It will come as no surprise then that a majority of young people in our study were adamant that they want the post- Brexit UK to be a better place than the UK is now, that they want negotiations to retain the rights and benefits associated with Europe today – freedom of movement, human and civil rights protections, subsidies, the single market – while also tackling inequality that has risen due to austerity. Although these were complex, and not a simple matter of the young ‘blaming’ everyone older than them, we were told of two levels of resentment: in the first case, young people under 18 felt deprived of a voice and overwhelmingly said that if they could, they would have voted to remain.
+text_rank similarity: 0.47246150989230407
+text_rank summary: (Youth participant from Falkirk & Clackmannanshire, Scotland) Priorities and hopes It will come as no surprise then that a majority of young people in our study were adamant that they want the post- Brexit UK to be a better place than the UK is now, that they want negotiations to retain the rights and benefits associated with Europe today – freedom of movement, human and civil rights protections, subsidies, the single market – while also tackling inequality that has risen due to austerity.With no funding, but assisted by a fantastic group of youth partners (including youth participation NGO My Life My Say and the All Party Parliamentary Group on a Better Brexit for Young People) we set up a series of focus groups across the UK to find out what young people from 13 to 30 think and feel about Brexit, and what they want out of the Brexit process.One surprising finding was the way in which group after group, regardless of age or background, insisted that they feared similar things as a result of Brexit, that they wanted similar things, and that they felt the ‘bad stuff’ associated with austerity and cuts had begun long before talk of Brexit – and needed to be addressed, urgently, by political leaders.
+tfidf similarity: 0.31054615100506294
+tfidf summary: Can’t we just stop talking about Brexit?’ Some people have simply had enough..Although many insisted that these were tendencies that had been in evidence before the referendum campaign due to the underfunding of public services and the increase in low-paid insecure work, most insisted that the vote to leave had made things worse..As soon as people voted leave, there were attacks on minorities…I don’t know [if] people thought it was more OK to be racist, because they were leaving [the EU].
+Topics: HN Social history and conditions. Social problems. Social reform, JN Political institutions (Europe), JN101 Great Britain
+Types: Website, NonPeerReviewed
+--------------------2019-04-30 10:07:28.855837--------------------
+Title: Economists think Trump harmed the world economy, but not that of their country
+Word count: 991
+Abstract: On November 8th 2016, I was in Mexico City having dinner with a group of people
+basic similarity: 0.0
+basic summary: However, those who would seem closer to its consequences (i.e., international experts for international policy and Americans for domestic policy) are somewhat less critical.
+sim_matrix similarity: 0.07014234500259844
+sim_matrix summary: So, in terms of international economic policy American experts are more critical than international ones.
+text_rank similarity: 0.08664831309328175
+text_rank summary: Assessments of the influence of the Trump administration on domestic policy outcomes Source: ifo World Economic Survey (WES) IV/2017 On the positive side, according to most American experts, the first year of Trumponomics has reduced bureaucracy and improved the business climate as a whole.
+tfidf similarity: 0.0648911121832301
+tfidf summary: Surely, this image will have affected the experts’ assessment of the economic performance of his Administration.
+Topics: HB Economic Theory
+Types: Website, NonPeerReviewed
+--------------------2019-04-30 10:07:39.417584--------------------
+Title: We can't rely on corporations to save us from climate change
+Word count: 983
+Abstract: Climate change is now the ever-present reality of human experience
+basic similarity: 0.6646527003209075
+basic summary: We can’t rely on corporations to save us from climate change Climate change is now the ever-present reality of human experience.
+sim_matrix similarity: 0.6646527003209075
+sim_matrix summary: We can’t rely on corporations to save us from climate change Climate change is now the ever-present reality of human experience.
+text_rank similarity: 0.0869060885698947
+text_rank summary: During this period, climate change became a central issue in political and economic debate, leading to a range of regulatory, market, and physical risks and opportunities, and each of these five companies were leaders in publicly promoting their engagement with this issue.
+tfidf similarity: 0.16354077400289596
+tfidf summary: In a recently published paper, we explore how major business corporations translate the grand challenge of climate change into strategies, policies and practices over an extended period of time.
+Topics: GE Environmental Sciences
+Types: Website, NonPeerReviewed
+--------------------2019-04-30 10:07:52.134626--------------------
+Title: What precisely does 'Canada +++' mean?
+Word count: 2475
+Abstract: The Secretary of State for Exiting the European Union, David Davis, has described his plans for a future trading arrangement with the EU as 'Canada plus plus plus'. But what precisely does this expression mean, if anything, and what are the trade and political implications? Andrew Blick (KCL and the Federal Trust) explains
+basic similarity: 0.6055274405975415
+basic summary: The Secretary of State for Exiting the European Union, David Davis, has described his plans for a future trading arrangement with the EU as ‘Canada plus plus plus’. ‘Canada plus plus plus’ is a variant on having cake and eating it LSE Brexit: What precisely does ‘Canada +++’ mean? Hence the need for references to Canada as a helpful example to add in ‘plus plus plus’.
+sim_matrix similarity: 0.31778184980672786
+sim_matrix summary: Moreover, to refer to UK trade with the EU is – at present – misleading. The European Council guidelines issued on 29 April, following the UK Article 50 notification of a month beforehand, noted that the UK government wanted to leave the Single Market, and seek ‘an ambitious’ FTA with the EU. The ‘have our cake and eat it’ option vaunted by ‘leave’ optimists – whereby the UK retains those aspects of EU membership it wishes to while jettisoning the others – is clearly excluded by the EU position papers.
+text_rank similarity: 0.3985480424754298
+text_rank summary: So too would be a recognition that the UK, like other non-EU EEA member states, would need to accept and abide by a substantial volume of existing and future EU law – while also no longer having a direct role in devising it (replaced by a weaker consultation process).Taking this trajectory into account, the European Council would ensure that future ‘trade and economic cooperation’ would provide expression to ‘a balance of rights and obligations, preserve a level playing field, avoid upsetting existing relations with other third countries, and…preserve the integrity and proper functioning of the Single Market.’ Government’s hopes for a Canada-styled agreement LSE Brexit: What precisely does ‘Canada +++’ mean?Though they will not present it in these terms, the Cabinet and governing party – and the wide range of opinion included within them – have for the time being coalesced around a position that departure from the EU is a potential source of great harm to the UK, the impact of which must be limited by reducing the extent of discontinuity (though some Conservatives harbour an enduring attraction to the notion of a clean break).
+tfidf similarity: 0.39002518095201466
+tfidf summary: This stance on the part of the EU27 should not be surprising..The European Council guidelines issued on 29 April, following the UK Article 50 notification of a month beforehand, noted that the UK government wanted to leave the Single Market, and seek ‘an ambitious’ FTA with the EU..In current circumstance, on the other hand, the repetition of the statements ‘exiting the Customs Union means exiting the Customs Union’ and ‘exiting the Single Market means exiting the Single Market’ could be helpful.
+Topics: JN Political institutions (Europe), JN101 Great Britain
+Types: Website, NonPeerReviewed
+--------------------2019-04-30 10:08:03.890210--------------------
+Title: The political significance of Poland's government reshuffle
+Word count: 1984
+Abstract: A sweeping reshuffle by Poland's new prime minister has changed the shape and direction of its government, with a greater emphasis being placed on economic modernisation, political stabilisation and improving EU relations. But as Aleks Szczerbiak writes, this pivot to the technocratic centre risks alienating the ruling party's core electorate, and is more about packaging the government's reforms attractively than abandoning its its radical state re-construction programme
+basic similarity: 0.17253571958097957
+basic summary: Most Law and Justice deputies support this, but in autumn 2016 large protests forced the ruling party to vote down a previous attempt to introduce greater restrictions. Cardiologist and deputy higher education minister Łukasz Szumowski took over as health minister from Konstanty Radziwiłł, who failed to resolve a high profile dispute involving resident doctors.
+sim_matrix similarity: 0.1776842533313826
+sim_matrix summary: Mr Morawiecki clearly enjoys Mr Kaczyński’s trust and there is even speculation that the Law and Justice leader is grooming him as his long-term successor. Improving relations with Mr Duda would have been impossible beyond a certain point if Mr Macierewicz had remained in office and Mr Kaczyński was clearly willing to risk alienating certain elements of Law and Justice’s political base in order to strengthen the governing camp’s internal cohesion.
+text_rank similarity: 0.3416427475717157
+text_rank summary: Indeed, some commentators have suggested that the reshuffle may be part of a more ambitious, long-term project of transforming Law and Justice into a pragmatic conservative grouping; although others dismiss it as simply a tactical pivot similar to the one that the party performed so successfully in the run-up to the 2015 elections.Beata Szydło’s administration took the political flak for introducing these reforms but, with the passage of the judicial reform laws at the end of last year, many of the key elements of the government’s state re-construction programme are now in place.
+tfidf similarity: 0.30030995114337616
+tfidf summary: However, the fact he appeared to be given a free-hand to stamp his authority on the government and dismiss such powerful figures as Mr Macierewicz suggests that the new prime minister has much greater room for manoeuvre then his predecessor..Political stabilisation and improving EU relations One of the reshuffle’s main objectives was to stabilise and consolidate Law and Justice’s position ahead of a series of key elections: local government elections in autumn 2018, European Parliament elections in summer 2019, and parliamentary elections in autumn 2019, culminating in the summer 2020 presidential poll.
+Topics: JC Political theory, JN Political institutions (Europe)
+Types: Website, NonPeerReviewed
+--------------------2019-04-30 10:08:14.952619--------------------
+Title: What the 2015 Greek debt negotiations tell us about Germany's negotiating stance on Brexit
+Word count: 1401
+Abstract: If the UK wants to secure favourable terms during the Brexit negotiations, it will be crucial to win the support of Germany. But what are the key German priorities as the talks move on to the second phase? Luuk Molthof writes that the 2015 Greek debt negotiations offer some insights into the German approach, and that the UK is likely to be disappointed if it believes Germany will put economic interests above its political support for European integration
+basic similarity: 0.46739467262411993
+basic summary: To understand why the British government would do well to heed these warnings, it is useful to be reminded of Germany’s role in the 2015 Greek bailout negotiations. The reason why Germany ultimately agreed to another bailout was because a Greek exit from the eurozone would undermine the euro’s credibility as an instrument of political integration. Yet in order to protect the euro’s role as a political instrument, Germany was willing to bear the economic costs.
+sim_matrix similarity: 0.602755557464542
+sim_matrix summary: Luuk Molthof writes that the 2015 Greek debt negotiations offer some insights into the German approach, and that the UK is likely to be disappointed if it believes Germany will put economic interests above its political support for European integration. Germany is not one to soften its position at the behest of a junior negotiating partner Just like the British government is currently expecting the German government to eventually soften its position and give in to certain demands, so too did the Greek government expect the German government to eventually soften its austerity demands and perhaps even write off some debt. Second, Germany’s refusal to soften Greece’s bailout conditions, even after repeated attempts by the Greek government to put pressure on Berlin, suggests that Germany is not one to soften its position at the behest of a junior negotiating partner.
+text_rank similarity: 0.6450180633117255
+text_rank summary: To be sure, over the course of the Greek debt negotiations, Germany never lost sight of its economic interests, refusing to grant Greece its much wanted Schuldenschnitt and remaining firm in its insistence on a strict reform programme.Germany is not one to soften its position at the behest of a junior negotiating partner Just like the British government is currently expecting the German government to eventually soften its position and give in to certain demands, so too did the Greek government expect the German government to eventually soften its austerity demands and perhaps even write off some debt.Luuk Molthof writes that the 2015 Greek debt negotiations offer some insights into the German approach, and that the UK is likely to be disappointed if it believes Germany will put economic interests above its political support for European integration.
+tfidf similarity: 0.48393113360974566
+tfidf summary: The drawing out of the negotiations had been a costly affair for all involved, but primarily for Greece..Similarly, Germany is likely to be willing to bear the economic costs of a no deal Brexit should that be necessary to protect the integrity of the internal market..First, Germany’s decision back then to agree to a third bailout package for Greece, despite the apparent failings of the first two packages, is indicative of Berlin’s willingness to prioritise political over economic ends.
+Topics: JC Political theory
+Types: Website, NonPeerReviewed
+--------------------2019-04-30 10:08:26.439949--------------------
+Title: Revisiting Nepal's year of elections: less success than meets the eye?
+Word count: 1641
+Abstract: While Nepal's elections were widely hailed as a major success, it would be a mistake to ignore many underlying issues that question the integrity and effectiveness of the recent elections, writes Nimesh Dhungana
+basic similarity: 0.19191295013913143
+basic summary: South Asia @ LSE: Revisiting Nepal’s year of elections: Less success than meets the eye?
+sim_matrix similarity: 0.33034018156292594
+sim_matrix summary: Elections without engagement Underlying the democratic accountability logic of elections is that citizens have the time and opportunity to engage with, and evaluate the political leaders and parties contesting the elections.
+text_rank similarity: 0.27665854979292803
+text_rank summary: From my close reading of the mainstream and social media accounts, together with in-person interactions with ordinary voters during my short visit to Nepal in the eve of second phase of parliamentary and provincial elections, below I raise a few points that seek to challenge the ‘success tale’ surrounding Nepal’s recent elections.
+tfidf similarity: 0.22311889005806895
+tfidf summary: Revisiting Nepal’s year of elections: Less success than meets the eye?
+Topics: JC Political theory, JF Political institutions (General)
+Types: Website, NonPeerReviewed
+--------------------2019-04-30 10:08:37.046575--------------------
+Title: Overseas Electors Bill: does government really intend to give expats 'votes for life'?
+Word count: 1066
+Abstract: Will the Overseas Electors Bill, proposing to give Britons living abroad the right to vote in UK elections for life, make it beyond second reading? Sue Collard puts recent developments in their wider context and explains their potential implications. She argues that if government does indeed mean business, then the issue is far too important to those affected to justify it being eventually sacrified to party politics
+basic similarity: 0.5289842976896962
+basic summary: British Politics and Policy at LSE: Overseas Electors Bill: does government really intend to give expats ‘votes for life’? Overseas Electors Bill: does government really intend to give expats ‘votes for life’? She argues that if government does indeed mean business, then the issue is far too important to those affected to justify it being eventually sacrificed to party politics.
+sim_matrix similarity: 0.331528369105965
+sim_matrix summary: British Politics and Policy at LSE: Overseas Electors Bill: does government really intend to give expats ‘votes for life’? Overseas Electors Bill: does government really intend to give expats ‘votes for life’? But the introduction of VFL would add to their burden because it means developing a whole new registration process to cater for those whose registration lapsed more than 15 years ago: their previous addresses cannot be verified through the electoral registers because the law does not require electoral authorities to keep these for more than 15 years.
+text_rank similarity: 0.31522305146551355
+text_rank summary: Assuming the VFL bill makes it beyond the second reading, we can expect any subsequent parliamentary debate to be highly politicised: opposition parties see VFL not as a progressive move to end the disenfranchisement of potentially millions of its citizens living outside the UK, but as a cynical ploy to increase Tory votes and donations (individuals can only donate if they are on an electoral register).This is further corroborated by the simultaneous statement from the Chair of ‘Conservatives Abroad’, Heather Harper, who welcomed the government’s renewed commitment to VFL: “The second reading of [the Overseas Electors Bill] brings us closer to getting votes for life for all British expatriates”.Certain campaigners have suggested that the creation of dedicated ‘overseas’ constituencies, such as those created by France, Italy, and Portugal, would avoid the problems of establishing proof of previous registration or residence, and would give expats better representation.
+tfidf similarity: 0.2971392427597787
+tfidf summary: Until 2015, registration levels for overseas electors were in fact extremely low, largely due to bureaucratic obstacles..Overseas Electors Bill: does government really intend to give expats ‘votes for life’?.Does the government really mean business?
+Topics: JN101 Great Britain
+Types: Website, NonPeerReviewed
+--------------------2019-04-30 10:08:47.930518--------------------
+Title: Quantity does matter as citation impact increases with productivity
+Word count: 1040
+Abstract: Many scholars are encouraged to focus on the quality not the quantity of their publications, the rationale being that becoming too focused on productivity risks reducing the quality of one's work. But is this, in fact, the case? Peter van den Besselaar and Ulf Sandström have studied a large sample of researchers and found that, while results vary by field, there is a positive and stronger than linear relationship between productivity and quality (in terms of the top cited papers). This same pattern appears to apply to institutions as well as individual researchers
+basic similarity: 0.4164438026846855
+basic summary: Figure 3: Relationship between number of papers per university and impact in terms of Top10% papers. For each researcher we calculated the (field-normalised and fractionally counted) total number of publications and also the number of those publications that figure in the (2.5%) highest cited papers. In the social sciences, the (slightly) “diminishing returns” pattern seems to dominate; whereas the “impact ceiling” pattern was found for computer science & mathematics and for the humanities. Higher numbers of papers do result in even higher numbers of top cited papers.
+sim_matrix similarity: 0.5156065182243281
+sim_matrix summary: Figure 1 shows the various possible relationships between “quality” and “quantity” that may exist: (i) there may be an “impact ceiling”, meaning that after a certain number of papers the number of highly cited papers stabilises; there could be (ii) diminishing; (iii) constant; or even (iv) increasing “impact returns” from productivity; and finally (v) “small may be beautiful” in the sense that the number of high-impact papers decreases when authors become too productive, trading quality for quantity. Our understanding, developed in a recent PLoS ONE paper, is that there is a positive and stronger than linear relationship between productivity and quality (in terms of the top cited papers). We tested this using the Leiden Ranking 2014, which details the number of papers and the number of papers belonging to the top 10% highly cited papers for all universities included. This size effect also holds at organisational level, something we did not address in the PLoS ONE paper but tested after a reviewer claimed the opposite: “the CWTS Leiden Ranking, for example, does not show such a linear relationship as the authors claim between the number of papers produced by a university and the percentage of highly cited papers produced by that university”.
+text_rank similarity: 0.5232279416219241
+text_rank summary: This size effect also holds at organisational level, something we did not address in the PLoS ONE paper but tested after a reviewer claimed the opposite: “the CWTS Leiden Ranking, for example, does not show such a linear relationship as the authors claim between the number of papers produced by a university and the percentage of highly cited papers produced by that university”.As Figure 3 shows, the relationship between quantity and quality/impact also follows the “positive returns” pattern at the level of universities and public research organisations.Figure 1 shows the various possible relationships between “quality” and “quantity” that may exist: (i) there may be an “impact ceiling”, meaning that after a certain number of papers the number of highly cited papers stabilises; there could be (ii) diminishing; (iii) constant; or even (iv) increasing “impact returns” from productivity; and finally (v) “small may be beautiful” in the sense that the number of high-impact papers decreases when authors become too productive, trading quality for quantity.Our understanding, developed in a recent PLoS ONE paper, is that there is a positive and stronger than linear relationship between productivity and quality (in terms of the top cited papers).
+tfidf similarity: 0.5397950162376304
+tfidf summary: Our understanding, developed in a recent PLoS ONE paper, is that there is a positive and stronger than linear relationship between productivity and quality (in terms of the top cited papers)..This size effect also holds at organisational level, something we did not address in the PLoS ONE paper but tested after a reviewer claimed the opposite: “the CWTS Leiden Ranking, for example, does not show such a linear relationship as the authors claim between the number of papers produced by a university and the percentage of highly cited papers produced by that university”..We tested this using the Leiden Ranking 2014, which details the number of papers and the number of papers belonging to the top 10% highly cited papers for all universities included..But is this, in fact, the case?
+Topics: LB2300 Higher Education
+Types: Website, NonPeerReviewed
+--------------------2019-04-30 10:08:59.575396--------------------
+Title: Far right politics in Germany: from fascism to populism?
+Word count: 1606
+Abstract: The rise of the Alternative for Germany (AfD) was one of the major stories of the 2017 German elections. As Tomá\v Nociar and Jan Philipp Thomeczek write, there has been a tendency among some commentators to draw parallels between the AfD and extremist or fascist parties from Germany's past. They argue that this is both unhelpful and inaccurate, and that the AfD has far more in common with other ‘populist’ parties who have had success in recent European elections
+basic similarity: 0.327160228953776
+basic summary: LSE European Politics and Policy (EUROPP) Blog: Far right politics in Germany: From fascism to populism? This new type of populist radical right party either never developed or dropped the antidemocratic sentiment in favour of a populist critique of the establishment. It is the rise of a populist radical right that is successful precisely because of its populism and not because it embodies fascism or extremism.
+sim_matrix similarity: 0.4812120859954664
+sim_matrix summary: The case of Germany: Why the AfD succeeds where the NPD failed The difference between the traditional extreme right and the contemporary populist radical right can best be exemplified when looking at the history and ideology of two far right parties in Germany: the National Democratic Party (NPD), founded in 1964, and the Alternative for Germany (AfD), founded in 2013. Far right politics in Germany: From fascism to populism? Chart: Vote share for the NPD and AfD in state, national and EU elections since 2013 LSE European Politics and Policy (EUROPP) Blog: Far right politics in Germany: From fascism to populism?
+text_rank similarity: 0.5156776085006793
+text_rank summary: The case of Germany: Why the AfD succeeds where the NPD failed The difference between the traditional extreme right and the contemporary populist radical right can best be exemplified when looking at the history and ideology of two far right parties in Germany: the National Democratic Party (NPD), founded in 1964, and the Alternative for Germany (AfD), founded in 2013.At the same time, through a populist critique of the establishment, they managed to present their criticism of the current liberal democratic system without being marginalised or banned for being extremists.Even though interwar fascist movements were strongly criticising the “established elite” as well as frequently referring to the people, they were never in favour of the idea of the people as sovereign and the general will.
+tfidf similarity: 0.30708865689897036
+tfidf summary: At the same time, through a populist critique of the establishment, they managed to present their criticism of the current liberal democratic system without being marginalised or banned for being extremists..At the same time, institutions of the current liberal and pluralist democracy should be weakened, according to the party..As a result, the new far right managed to mobilise xenophobic public opinion without being stigmatised as racists.
+Topics: JC Political theory, JN Political institutions (Europe)
+Types: Website, NonPeerReviewed
+--------------------2019-04-30 10:09:10.473273--------------------
+Title: LSE festival Beveridge 2.0 preview: 'why we need a citizen's basic income: a new edition or a new book?' by Malcolm Torry
+Word count: 1430
+Abstract: On Tuesday 20 February 2018, LSE hosted a ‘Citizen’s Basic Income Day’, including the LSE Festival evening event, ‘Beveridge Rebooted: A Basic Income for Every Citizen?’: listen to the podcast here. Ahead of the discussion, panellist Dr Malcolm Torry discusses his forthcoming new book on the topic, Why We Need a Citizen’s Basic Income, and how it builds on his previous works, including Money for Everyone: Why We Need a Citizen’s Income
+basic similarity: 0.19469162526389894
+basic summary: Everyone of the same age would receive the same amount, every week or every month, no matter what their income, wealth, employment status, household structure, etc. We decided to put detailed research results in an online appendix because we believed that the figures would go out of date much faster than the book.
+sim_matrix similarity: 0.4298109532849054
+sim_matrix summary: A Citizen’s Basic Income (sometimes called a Basic Income, a Citizen’s Income or a Universal Basic Income) is an unconditional and nonwithdrawable income for every individual. The final two chapters were about alternatives to Citizen’s Basic Income, and about the social problems that a Citizen’s Basic Income would not solve.
+text_rank similarity: 0.3417048634897042
+text_rank summary: A brief flurry of activity 35 years ago prompted a small group of us to form the Basic Income Research Group – now the Citizen’s Basic Income Trust – and then the Basic Income European Network (BIEN: now the Basic Income Earth Network) to promote research and debate, so that the idea wouldn’t disappear entirely, and so that the next time there was an upswing in interest, there would be expertise and literature available to facilitate an intelligent discussion.By 2016 the question ‘would a Citizen’s Basic Income be a good idea?’ was still being asked, but two other questions were if anything more prominent: would a Citizen’s Basic Income be feasible?
+tfidf similarity: 0.391071107287548
+tfidf summary: In the evening, Professors Philippe Van Parijs and John Kay will debate the motion: ‘This house believes that if the Beveridge Report were being written today then it would have recommended a Basic Income’..A Citizen’s Basic Income (sometimes called a Basic Income, a Citizen’s Income or a Universal Basic Income) is an unconditional and nonwithdrawable income for every individual.
+Topics: HG Finance, HN Social history and conditions. Social problems. Social reform
+Types: Website, NonPeerReviewed
+--------------------2019-04-30 10:09:21.137772--------------------
+Title: America's history has many shameful and frightening moments. The strong reactions they spurred offer a glimmer of hope for today
+Word count: 1191
+Abstract: With Year Two of the Trump presidency beginning, Ron Pruessen recalls earlier American voices of despair and disappointment. As Mark Twain famously suggested, history may not exactly repeat itself, but it sure does rhyme a lot
+basic similarity: 0.08604124724129789
+basic summary: USApp – American Politics and Policy Blog: America’s history has many shameful and frightening moments. America’s history has many shameful and frightening moments.
+sim_matrix similarity: 0.13442999727484364
+sim_matrix summary: USApp – American Politics and Policy Blog: America’s history has many shameful and frightening moments. As a good thing, slavery is strikingly peculiar, in this, that it is the only good thing which no man ever seeks the good of, for himself.”  USApp – American Politics and Policy Blog: America’s history has many shameful and frightening moments.
+text_rank similarity: 0.1710516907377579
+text_rank summary: As a good thing, slavery is strikingly peculiar, in this, that it is the only good thing which no man ever seeks the good of, for himself.”  USApp – American Politics and Policy Blog: America’s history has many shameful and frightening moments.Voices from the past can also offer reminders of the fact that the United States has had other shameful and frightening moments in its history: because those times often spurred strong reactions and some (some) progress, recalling them can offer glimmers of hope.
+tfidf similarity: 0.20343712620308438
+tfidf summary: “Any modern community which establishes a tolerable justice,” he wrote in 1952, “is the beneficiary of the ironic triumph of the wisdom of common sense over the foolishness of its wisemen.” One example resonant with Niebuhr: the effective resistance to those urging the use of nuclear weapons in the Korean War..As a good thing, slavery is strikingly peculiar, in this, that it is the only good thing which no man ever seeks the good of, for himself.” USApp – American Politics and Policy Blog: America’s history has many shameful and frightening moments.
+Topics: JK Political institutions (United States)
+Types: Website, NonPeerReviewed
