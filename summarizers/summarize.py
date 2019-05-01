@@ -32,10 +32,6 @@ def log(log_filename, abstract, title, topics, types, word_count, results):
         logfile.write("-"*20 + str(datetime.now()) + "-"*20 + "\n")
         logfile.write("Title: " + title.replace("\n","") + "\n")
         logfile.write("Word count: " + str(word_count) + "\n")
-        """
-        for name, similarity in similarities.items():
-            logfile.write(name + ": " + str(similarity) + "\n")
-        """
         logfile.write("Abstract: " + abstract.replace("\n","") + "\n")
         for name, result in results.items():
             logfile.write(name + " similarity: " + str(result["similarity"]) + "\n")
@@ -126,7 +122,6 @@ def run_summarize(articles = 200):
             results["neural"]  = {"summary" : neural_summary, "similarity" : neural_sim}
         except:
             print("Neural-based summary failed for:", title)
-            pass
         """
 
         # Other data
@@ -139,14 +134,6 @@ def run_summarize(articles = 200):
         valid_articles += 1
         if valid_articles == articles:
             break
-
-    """
-    print()
-    print("Articles analyzed: ", valid_articles)
-    print("Average for ", name, ":", sum(similarities)/len(similarities))
-    print("Min for ", name, ":", min(similarities))
-    print("Max for ", name, ":", max(similarities))
-    """
 
 def main():
     import sys
