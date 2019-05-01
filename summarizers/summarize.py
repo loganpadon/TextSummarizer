@@ -7,9 +7,10 @@ Saves results/statistics in log file
 
 from basic_text_summary import summarize as basic_summarize
 from similarity_matrix_summarizer import sim_matrix_summarize
-from text_rank_summarizer import text_rank_summarize
+from text_rank_summarizer import text_rank_summarize, word_vectors_glove
 from tf_idf_summarizer import tf_idf_summarize
 from frequency_summarizer import FrequencySummarizer
+#from neural_model_prebuilt import neural_summarize
 
 from text_comparison import cos_sim_tfidf
 from retrieve_article import get_articles
@@ -62,6 +63,7 @@ Compares each summary with abstract, logs similarity metric
 def run_summarize(articles = 200):
     valid_articles = 0
     log_filepath = os.path.join("logs", "summary_log_" + datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + ".txt")
+    word_embeddings = word_vectors_glove()
     for article in get_articles():
         if articles is None:
             continue
@@ -83,28 +85,49 @@ def run_summarize(articles = 200):
         basic_sim = cos_sim_tfidf(basic_summary, abstract)
         results["basic"] = {"summary" : basic_summary, "similarity" : basic_sim}
 
-        # Similarity matrix summary
-        sim_matrix_summary = sim_matrix_summarize(text, abstract_len)
-        sim_matrix_sim = cos_sim_tfidf(sim_matrix_summary, abstract)
-        results["sim_matrix"] = {"summary": sim_matrix_summary, "similarity" : sim_matrix_sim}
+        try:
+            # Similarity matrix summary
+            sim_matrix_summary = sim_matrix_summarize(text, abstract_len)
+            sim_matrix_sim = cos_sim_tfidf(sim_matrix_summary, abstract)
+            results["sim_matrix"] = {"summary": sim_matrix_summary, "similarity" : sim_matrix_sim}
+        except:
+            print("Similarity Matrix Summary failed for:", title)
 
-        # Text Rank Summary
-        text_rank_summary = text_rank_summarize(text, abstract_len)
-        text_rank_sim = cos_sim_tfidf(text_rank_summary, abstract)
-        results["text_rank"] = {"summary" : text_rank_summary, "similarity" : text_rank_sim}
+        try: 
+            # Text Rank Summary
+            text_rank_summary = text_rank_summarize(text, abstract_len, word_embeddings)
+            text_rank_sim = cos_sim_tfidf(text_rank_summary, abstract)
+            results["text_rank"] = {"summary" : text_rank_summary, "similarity" : text_rank_sim}
+        except:
+            print("Text Rank Summary failed for:", title)
+            
+        try:
+            # TFIDF Summary
+            tf_idf_summary = tf_idf_summarize(text, title, abstract_len)
+            tf_idf_sim = cos_sim_tfidf(tf_idf_summary, abstract)
+            results["tfidf"] = {"summary" : tf_idf_summary, "similarity" : tf_idf_sim}
+        except:
+            print("TFIDF Summary failed for:", title)
 
+        try:
+            # Frequency-based summary
+            freq_summer = FrequencySummarizer()
+            freq_summary = freq_summer.summarize(text, abstract_len)
+            freq_sim = cos_sim_tfidf(freq_summary, abstract)
+            results["frequency"] = {"summary" : freq_summary, "similarity" : freq_sim}
+        except:
+            print("Frequency-based summary failed for:", title)
+        
         """
-        # TFIDF Summary
-        tf_idf_summary = tf_idf_summarize(text, title, abstract_len)
-        tf_idf_sim = cos_sim_tfidf(tf_idf_summary, abstract)
-        results["tfidf"] = {"summary" : tf_idf_summary, "similarity" : tf_idf_sim}
+        try:
+            # Neural-based summary
+            neural_summary = neural_summarize(text)
+            neural_sim = cos_sim_tfidf(neural_summary, abstract)
+            results["neural"]  = {"summary" : neural_summary, "similarity" : neural_sim}
+        except:
+            print("Neural-based summary failed for:", title)
+            pass
         """
-
-        # Frequency-based summary
-        freq_summer = FrequencySummarizer()
-        freq_summary = freq_summer.summarize(text, abstract_len)
-        freq_sim = cos_sim_tfidf(freq_summary, abstract)
-        results["frequency"] = {"summary" : freq_summary, "similarity" : freq_sim}
 
         # Other data
         word_count = get_word_count(text)

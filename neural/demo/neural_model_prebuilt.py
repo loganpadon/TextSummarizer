@@ -111,7 +111,7 @@ def test():
         print('Generated Headline: ', headline)
         print('Original Headline: ', actual_headline)
 
-def testStr(str):
+def neural_summarize(doc):
     np.random.seed(42)
     data_dir_path = './data'  # refers to the demo/data folder
     model_dir_path = './models'  # refers to the demo/models folder
@@ -120,8 +120,9 @@ def testStr(str):
 
     summarizer = Seq2SeqSummarizer(config)
     summarizer.load_weights(weight_file_path=Seq2SeqSummarizer.get_weight_file_path(model_dir_path=model_dir_path))
-    headline = summarizer.summarize(str)
-    print('Generated Headline: ', headline)
+    headline = summarizer.summarize(doc)
+    #print('Generated Headline: ', headline)
+    return headline
 
 
 
