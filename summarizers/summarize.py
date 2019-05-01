@@ -10,7 +10,7 @@ from similarity_matrix_summarizer import sim_matrix_summarize
 from text_rank_summarizer import text_rank_summarize, word_vectors_glove
 from tf_idf_summarizer import tf_idf_summarize
 from frequency_summarizer import FrequencySummarizer
-#from neural_model_prebuilt import neural_summarize
+from neural_model_prebuilt import neural_summarize
 
 from text_comparison import cos_sim_tfidf
 from retrieve_article import get_articles
@@ -32,10 +32,6 @@ def log(log_filename, abstract, title, topics, types, word_count, results):
         logfile.write("-"*20 + str(datetime.now()) + "-"*20 + "\n")
         logfile.write("Title: " + title.replace("\n","") + "\n")
         logfile.write("Word count: " + str(word_count) + "\n")
-        """
-        for name, similarity in similarities.items():
-            logfile.write(name + ": " + str(similarity) + "\n")
-        """
         logfile.write("Abstract: " + abstract.replace("\n","") + "\n")
         for name, result in results.items():
             logfile.write(name + " similarity: " + str(result["similarity"]) + "\n")
@@ -65,7 +61,7 @@ def run_summarize(articles = 200):
     log_filepath = os.path.join("logs", "summary_log_" + datetime.now().strftime("%Y-%m-%d_%H-%M-%S") + ".txt")
     word_embeddings = word_vectors_glove()
     for article in get_articles():
-        if articles is None:
+        if not article:
             continue
         text = article["preprocessed"]
         title = article["title"].replace("\n", "").replace("\r","")
@@ -90,24 +86,24 @@ def run_summarize(articles = 200):
             sim_matrix_summary = sim_matrix_summarize(text, abstract_len)
             sim_matrix_sim = cos_sim_tfidf(sim_matrix_summary, abstract)
             results["sim_matrix"] = {"summary": sim_matrix_summary, "similarity" : sim_matrix_sim}
-        except:
-            print("Similarity Matrix Summary failed for:", title)
+        except Exception as e:
+            print("Similarity Matrix Summary failed for:", title, "because", str(e))
 
         try: 
             # Text Rank Summary
             text_rank_summary = text_rank_summarize(text, abstract_len, word_embeddings)
             text_rank_sim = cos_sim_tfidf(text_rank_summary, abstract)
             results["text_rank"] = {"summary" : text_rank_summary, "similarity" : text_rank_sim}
-        except:
-            print("Text Rank Summary failed for:", title)
+        except Exception as e:
+            print("Text Rank Summary failed for:", title, "because", str(e))
             
         try:
             # TFIDF Summary
             tf_idf_summary = tf_idf_summarize(text, title, abstract_len)
             tf_idf_sim = cos_sim_tfidf(tf_idf_summary, abstract)
             results["tfidf"] = {"summary" : tf_idf_summary, "similarity" : tf_idf_sim}
-        except:
-            print("TFIDF Summary failed for:", title)
+        except Exception as e:
+            print("TFIDF Summary failed for:", title, "because", str(e))
 
         try:
             # Frequency-based summary
@@ -115,38 +111,27 @@ def run_summarize(articles = 200):
             freq_summary = freq_summer.summarize(text, abstract_len)
             freq_sim = cos_sim_tfidf(freq_summary, abstract)
             results["frequency"] = {"summary" : freq_summary, "similarity" : freq_sim}
-        except:
-            print("Frequency-based summary failed for:", title)
+        except Exception as e:
+            print("Frequency-based summary failed for:", title, "because", str(e))
         
-        """
         try:
             # Neural-based summary
             neural_summary = neural_summarize(text)
             neural_sim = cos_sim_tfidf(neural_summary, abstract)
             results["neural"]  = {"summary" : neural_summary, "similarity" : neural_sim}
-        except:
-            print("Neural-based summary failed for:", title)
-            pass
-        """
+        except Exception as e:
+            print("Neural-based summary failed for:", title, "because", str(e))
+        
 
         # Other data
         word_count = get_word_count(text)
         types = article["subjects"] if "subjects" in article.keys() else []
         topics = article["topics"] if "topics" in article.keys() else []
-        #types = article["types"] if "types" in article.keys() else []
 
         log(log_filepath, abstract, article["title"], topics, types, word_count, results)
         valid_articles += 1
         if valid_articles == articles:
             break
-
-    """
-    print()
-    print("Articles analyzed: ", valid_articles)
-    print("Average for ", name, ":", sum(similarities)/len(similarities))
-    print("Min for ", name, ":", min(similarities))
-    print("Max for ", name, ":", max(similarities))
-    """
 
 def main():
     import sys

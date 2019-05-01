@@ -11,12 +11,11 @@ from retrieve_article import get_articles
 
 def train():
     LOAD_EXISTING_WEIGHTS = False
-    LOAD_DFARTICLES = False
+    LOAD_DFARTICLES = True
 
     np.random.seed(42)
-    data_dir_path = 'E:\PycharmProjects\TextSummarizer\demo\data'
-    report_dir_path = 'E:\PycharmProjects\TextSummarizer\demo\\reports'
-    model_dir_path = 'E:\PycharmProjects\TextSummarizer\demo\models'
+    report_dir_path = 'reports'
+    model_dir_path = 'models'
 
     print('loading training data')
     if not LOAD_DFARTICLES:
@@ -43,13 +42,6 @@ def train():
     Y = df.abstract
     X = df['text']
 
-    # print('loading csv file ...')
-    # df = pd.read_csv(data_dir_path + "/fake_or_real_news.csv")
-    #
-    # print('extract configuration from input texts ...')
-    # Y = df.title
-    # X = df['text']
-
     config = fit_text(X, Y)
 
     summarizer = Seq2SeqSummarizer(config)
@@ -61,18 +53,17 @@ def train():
 
     history = summarizer.fit(Xtrain, Ytrain, Xtest, Ytest, epochs=100)
 
-    history_plot_file_path = report_dir_path + '/' + Seq2SeqSummarizer.model_name + '-history.png'
+    history_plot_file_path = report_dir_path + '\\' + Seq2SeqSummarizer.model_name + '-history.png'
     if LOAD_EXISTING_WEIGHTS:
-        history_plot_file_path = report_dir_path + '/' + Seq2SeqSummarizer.model_name + '-history-v' + str(
+        history_plot_file_path = report_dir_path + '\\' + Seq2SeqSummarizer.model_name + '-history-v' + str(
             summarizer.version) + '.png'
     plot_and_save_history(history, summarizer.model_name, history_plot_file_path, metrics={'loss', 'acc'})
 
 
 def test():
-    LOAD_DFARTICLES = False
+    LOAD_DFARTICLES = True
     np.random.seed(42)
-    data_dir_path = './data'  # refers to the demo/data folder
-    model_dir_path = './models'  # refers to the demo/models folder
+    model_dir_path = 'models'  # refers to the demo/models folder
 
     print('loading validation data')
     if not LOAD_DFARTICLES:
@@ -80,7 +71,7 @@ def test():
         i = 0
         for article in get_articles(year=2018):
             print(i)
-            tempDF = pd.DataFrame({'abstract': [article['description']], 'text': [article['fullText']]})
+            tempDF = pd.DataFrame({'abstract': [article['description']], 'text': [article['preprocessed']]})
             df = df.append(tempDF, ignore_index=True)
             if i % 10 == 0:
                 with open('dfArticles2018.pkl', 'wb') as f:
@@ -107,14 +98,13 @@ def test():
         x = X[i]
         actual_headline = Y[i]
         headline = summarizer.summarize(x)
-        print('Article: ', x)
+        #print('Article: ', x)
         print('Generated Headline: ', headline)
         print('Original Headline: ', actual_headline)
 
 def neural_summarize(doc):
     np.random.seed(42)
-    data_dir_path = './data'  # refers to the demo/data folder
-    model_dir_path = './models'  # refers to the demo/models folder
+    model_dir_path = 'models'  # refers to the demo/models folder
 
     config = np.load(Seq2SeqSummarizer.get_config_file_path(model_dir_path=model_dir_path), allow_pickle=True).item()
 
