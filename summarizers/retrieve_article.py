@@ -79,9 +79,9 @@ def preprocess(text, title):
             continue
         
         title_found = False
-        text_sent_no_space = re.sub(r"\s+", "", sentence)
+        text_sent_no_space = re.sub(r"\s+", "", sentence.lower())
         for title_sent in sent_tokenize(title):   
-            title_sent_no_space = re.sub(r"\s+", "", title_sent)
+            title_sent_no_space = re.sub(r"\s+", "", title_sent.lower())
             if title_sent_no_space in text_sent_no_space:
                 title_found = True
         if title_found:
@@ -128,7 +128,7 @@ def get_articles(year=2018):
                 yield article
                 valid_articles += 1
                 print("Retrieving articles: ", valid_articles, end="\r")
-                sys.stdout.write("\033[F") # Cursor up one line
+                sys.stdout.write("\033") # Cursor up one line
     
 def main():
     get_articles()

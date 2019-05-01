@@ -40,10 +40,11 @@ def word_vectors_glove():
     len(word_embeddings)
     return word_embeddings
 
-print(len(word_vectors_glove()))
+#print(len(word_vectors_glove()))
 
-def vectors(clean_sentences):
-    word_embeddings = word_vectors_glove()
+def vectors(clean_sentences, word_embeddings = []):
+    if not word_embeddings:
+        word_embeddings = word_vectors_glove()
     sentence_vectors = []
     for i in clean_sentences:
         if len(i) != 0:
@@ -58,15 +59,16 @@ def vectors(clean_sentences):
         for j in range(len(clean_sentences)):
             if i != j:
                 sim_mat[i][j] = cosine_similarity(sentence_vectors[i].reshape(1,100), sentence_vectors[j].reshape(1,100))[0,0]
+                #print(sim_mat[i][j])
 
     return sentence_vectors, sim_mat
 
 #page rank
 import networkx as nx
 
-def ranked_sentences(sentences, top=5):
+def ranked_sentences(sentences, top=5, word_embeddings = []):
     clean_sentences = cleans_sentences(sentences)
-    sentence_vectors, sim_mat = vectors(clean_sentences)
+    sentence_vectors, sim_mat = vectors(clean_sentences, word_embeddings)
     nx_graph = nx.from_numpy_array(sim_mat)
     scores = nx.pagerank(nx_graph)
 
@@ -80,9 +82,9 @@ def ranked_sentences(sentences, top=5):
     return summary
 
 
-def text_rank_summarize(document, sent_num=5):
+def text_rank_summarize(document, sent_num=5, word_embeddings = []):
     sentences = sent_tokenize(document)
-    summary = ranked_sentences(sentences, sent_num)
+    summary = ranked_sentences(sentences, sent_num, word_embeddings)
     return summary
 
 """
