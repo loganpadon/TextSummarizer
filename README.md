@@ -3,14 +3,30 @@ Text summarizer for NLP.
 Implements several different text summarization methods and performs analysis on the results.
 Uses [CORE API](https://core.ac.uk/services/api/) for input data. 
 
-External requirements:
+### External requirements:
 * For the neural model, 
 [keras-text-summarization](https://github.com/chen0040/keras-text-summarization) 
 is required.
 * For the TextRank summarization method, 
 [gloVe](http://nlp.stanford.edu/data/glove.6B.zip) 
 embeddings are required. 
-* Many different Python modules are used, including nltk, numpy, tensorflow, keras, matplotlib, ...
+* Many different Python modules are used, including:
+  * nltk
+  * numpy
+  * tensorflow
+  * keras
+  * matplotlib
+  * sklearn
+  * pandas
+  * statistics
+  * networkx
+  * langdetect
+* There are a few that aren't necessary to run the project but were also used:
+  * spacy
+  * gensim
+
+### To run the project
+Once all the requirements are satisified, all it takes to run the project is `python summarize.py` in the command line from the summarizers folder. The glove file is also required in the summarizers folder. Log files are stored in the logs folder. To analyze, run the command `python make_graphs.py` on the relevant log file. 
 
 ### make_graphs.py
 * Performs analysis on a log file

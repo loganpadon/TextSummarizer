@@ -6,7 +6,6 @@ import nltk
 import numpy as np
 import datetime
 import xml.etree.ElementTree as ET
-from bs4 import BeautifulSoup
 from nltk.corpus import stopwords
 stop = stopwords.words('english')
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
