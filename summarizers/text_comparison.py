@@ -138,9 +138,10 @@ def main():
     with open('abstract_sample.txt','r') as file:
         doc1 = file.readline()
         doc2 = file.readline()
-    #similarity = cos_sim_doc2vec(doc1, doc2)
-    similarity = cos_sim_tfidf(doc1, doc2)
-    print(similarity)
+    print(cos_sim_doc2vec(doc1, doc2))
+    print(cos_sim_tfidf(doc1, doc2))
+    print(Jaccard_similarity(doc1, doc2))
+    print(similarity_spacy(doc1, doc2))
 
 if __name__ == "__main__":
    main()
