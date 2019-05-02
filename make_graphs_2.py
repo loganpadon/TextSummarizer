@@ -39,16 +39,29 @@ def get_methods(results):
     return methods
 
 def plot_word_counts(methods):
+    colors = ['blue', 'green', 'red', 'yellow', 'black']
+    i = 0
     for method, vals in methods.items():
         x = vals["word_counts"]
         y = vals["sims"]
         sorted_x, sorted_y = zip(*sorted(zip(x, y)))
-        print(sum(y) / len(y))
-        plt.plot(sorted_x, sorted_y, color='red')
+        plt.plot(sorted_x, sorted_y, color=colors[i])
         plt.xlabel('Word Count')
         plt.ylabel('Similarity')
         plt.title(method + " Similarity vs Word Count")
         plt.show()
+        i += 1
+    i = 0
+    for method, vals in methods.items():
+        x = vals["word_counts"]
+        y = vals["sims"]
+        sorted_x, sorted_y = zip(*sorted(zip(x, y)))
+        plt.plot(sorted_x, sorted_y, color=colors[i])
+        i += 1
+    plt.xlabel('Word Count')
+    plt.ylabel('Similarity')
+    plt.title('Combined Similarity vs Word Count')
+    plt.show()
 
 def run_analysis(methods, filename):
     with open(filename,"w+",encoding="utf8") as analysis:
@@ -70,7 +83,7 @@ def main():
     results = parse_file(filename)
     methods = get_methods(results)
     run_analysis(methods, analysis_filename)
-    #plot_word_counts(methods)
+    plot_word_counts(methods)
 
 if __name__=="__main__":
     main()
