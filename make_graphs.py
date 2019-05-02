@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 import statistics
 import numpy as np
 
+colors = ['blue', 'green', 'red', 'yellow', 'black', 'purple', 'pink']
+
 def parse_file(filename):
     with open(filename, "r", encoding="utf8") as file_lines:
         results = []
@@ -71,7 +73,6 @@ def high_pass_filter(methods):
             del methods[method]["types"][typ]
 
 def plot_word_counts(methods):
-    colors = ['blue', 'green', 'red', 'yellow', 'black']
     i = 0
     for method, vals in methods.items():
         x = vals["word_counts"]
@@ -103,7 +104,7 @@ def plot_topics(methods):
         for topic in topics:
             avg.append(statistics.mean(vals["topics"][topic]))
         plt.bar(y_pos, avg, align='center', alpha=0.5)
-        plt.xticks(y_pos, topics, rotation=45)
+        plt.xticks(y_pos, topics, rotation=90)
         plt.ylabel('Similarity')
         plt.title(method + " Summary Similarity for Topics")
         plt.show()
@@ -162,12 +163,12 @@ def main():
         print("Usage: python make_graphs.py [filename]")
         exit()
     filename = sys.argv[1]
-    analysis_filename = filename.split(".")[0]+"_analysis.txt"
+    analysis_filename = filename.split(".")[-2]+"_analysis.txt"
     results = parse_file(filename)
     methods = get_methods(results)
     high_pass_filter(methods)
-    #run_analysis(methods, analysis_filename)
-    #plot_word_counts(methods)
+    run_analysis(methods, analysis_filename)
+    plot_word_counts(methods)
     plot_topics(methods)
     plot_types(methods)
 

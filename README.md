@@ -1,6 +1,10 @@
 # TextSummarizer
 Text summarizer for NLP.
 
+External requirements:
+* For the neural model, [keras-text-summarization] https://github.com/chen0040/keras-text-summarization is required.
+* For the TextRanke summarization method, [gloVe] http://nlp.stanford.edu/data/glove.6B.zip embeddings are required. 
+
 ### basic_text_summary.py:
 * Code taken from Python extractive text summarization tutorial
 * Uses simple word frequency to score sentences
