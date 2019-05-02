@@ -1,0 +1,30 @@
+basic Summary
+Mean Similarity: 0.4976225819706219
+Median Similarity : 0.5400993722461132
+Min Similarity: 0.0
+Max Similarity: 0.9773601275161967
+
+sim_matrix Summary
+Mean Similarity: 0.48170852542701054
+Median Similarity : 0.5041631922963271
+Min Similarity: 0.0
+Max Similarity: 0.9999999999999993
+
+text_rank Summary
+Mean Similarity: 0.5129302857725522
+Median Similarity : 0.5528966928729969
+Min Similarity: 0.0
+Max Similarity: 1.0000000000000002
+
+tfidf Summary
+Mean Similarity: 0.454156506478571
+Median Similarity : 0.4720485531774576
+Min Similarity: 0.0
+Max Similarity: 0.9999999999999993
+
+frequency Summary
+Mean Similarity: 0.46533033067829677
+Median Similarity : 0.4875116820759683
+Min Similarity: 0.0
+Max Similarity: 0.9999999999999993
+
