@@ -1,0 +1,18 @@
+--------------------2019-05-02 08:13:06.570595--------------------
+Title: Book review: fragile conviction: changing ideological landscapes in urban Kyrgyzstan by Mathijs Pelkmans
+Word count: 1553
+Abstract: In Fragile Conviction: Changing Ideological Landscapes in Urban Kyrgyzstan, Mathijs Pelkmans offers an ethnography of everyday life in a former mining town in southern Kyrgyzstan that focuses on the epistemic and existential crises experienced following the collapse of the Soviet Union, and how this has led to ephemeral faith in different ideologies and religions within the country. Rooted in the author’s deep understanding of Kyrgyz society, this is a complex, well-structured and nuanced text, finds Julia Sinitsky
+basic similarity: 0.21638808950665067
+basic summary: It seems in a country almost completely devoid of economic opportunity and with decaying Soviet social institutions, strange, sometimes unlikely, belief systems take hold. This lack of connection to even the very recent past left citizens without a footing from which to move forward.
+sim_matrix similarity: 0.27588363162278584
+sim_matrix summary: With Soviet atheism relegated to the history books, all other convictions associated with the Soviet system were also up for question. Nonetheless, one of the major themes explored by Pelkmans is that of Soviet atheism, and atheism in general.
+text_rank similarity: 0.3683285427375168
+text_rank summary: It seems in a country almost completely devoid of economic opportunity and with decaying Soviet social institutions, strange, sometimes unlikely, belief systems take hold.He notes the existential crisis he finds in much of the countryside, and describes the stark lack of transformation in a specific town, Kokjangak: By 2008 the Soviet past had become a chimera, with even returners failing to recognize their hometown.
+tfidf similarity: 0.42418948526440187
+tfidf summary: Find this book: Mathijs Pelkmans’s Fragile Conviction: Changing Ideological Landscapes in Urban Kyrgyzstan opens with a description of the youthful enthusiasm with which a young woman takes up a revolutionary cause that offers the possibility of change in a corrupt and oppressive republic. The only persons for whom this did not ring true were adherents to the Soviet ideology, still pining for the relative prosperity that the Soviet regime offered their family, for whom the cornucopia of new belief systems was both bizarre and incomprehensible.
+frequency similarity: 0.4939054112384218
+frequency summary: For many in Kyrgyzstan, the collapse of the Soviet Union was not just a collapse of an economic, political or even moral ideology: it was a collapse of an entire system of thought, and of a methodology of understanding the world. Find this book:  Mathijs Pelkmans’s Fragile Conviction: Changing Ideological Landscapes in Urban Kyrgyzstan opens with a description of the youthful enthusiasm with which a young woman takes up a revolutionary cause that offers the possibility of change in a corrupt and oppressive republic.
+neural similarity: 0.3257809746995512
+neural summary: background: this paper was to assess the effect of the quality of arterial factors for the second of the influence factor of the presence of the impact on the effects of an generally method for an characteristics of single characteristics of the presence of analyze the presence of the literature
+Topics: HN Social history and conditions. Social problems. Social reform, JC Political theory
+Types: Website, NonPeerReviewed
