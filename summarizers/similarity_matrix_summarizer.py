@@ -80,6 +80,3 @@ def sim_matrix_summarize(document, top_n=5):
     # Step 5 - Offcourse, output the summarize texr
     #print("Summarize Text: \n", ". ".join(summarize_text))
     return " ".join(summarize_text)
-
-# function to call
-#generate_summary( "msft.txt", 2)

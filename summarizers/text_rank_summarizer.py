@@ -40,8 +40,6 @@ def word_vectors_glove():
     len(word_embeddings)
     return word_embeddings
 
-#print(len(word_vectors_glove()))
-
 def vectors(clean_sentences, word_embeddings = []):
     if not word_embeddings:
         word_embeddings = word_vectors_glove()
@@ -59,8 +57,6 @@ def vectors(clean_sentences, word_embeddings = []):
         for j in range(len(clean_sentences)):
             if i != j:
                 sim_mat[i][j] = cosine_similarity(sentence_vectors[i].reshape(1,100), sentence_vectors[j].reshape(1,100))[0,0]
-                #print(sim_mat[i][j])
-
     return sentence_vectors, sim_mat
 
 #page rank
@@ -73,9 +69,7 @@ def ranked_sentences(sentences, top=5, word_embeddings = []):
     scores = nx.pagerank(nx_graph)
 
     ranked_sentences = sorted(((scores[i],s) for i,s in enumerate(sentences)), reverse=True)
-    
-    #Please chang the number of sentences for summary length!!!!!
-    # Extract top 10 sentences as the summary
+
     summary = ""
     for i in range(top):
         summary += ranked_sentences[i][1]
@@ -86,24 +80,3 @@ def text_rank_summarize(document, sent_num=5, word_embeddings = []):
     sentences = sent_tokenize(document)
     summary = ranked_sentences(sentences, sent_num, word_embeddings)
     return summary
-
-"""
-
-#comment line 80 though 92 since you will be using you own sentences.
-#--------------------------------------------------------------------------------
-#change the code below for your sentences
-#--------------------------------------------------------------------------------
-df = pd.read_csv("tennis_articles_v4.csv")
-
-sentences = []
-for s in df['article_text']:
-    sentences.append(sent_tokenize(s))
-
-sentences = [y for x in sentences for y in x] # flatten list of sentences:
-#--------------------------------------------------------------------------------
-
-#!!!!!!!!!!!!!!!!!!!!!
-#run the program
-ranked_sentences(sentences)
-
-"""
