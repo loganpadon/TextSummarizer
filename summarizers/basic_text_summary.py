@@ -3,6 +3,8 @@
 Created on Mon Apr 15 19:48:38 2019
 
 @author: johnb
+
+https://stackabuse.com/text-summarization-with-nltk-in-python/
 """
 
 import re
